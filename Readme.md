@@ -3,7 +3,7 @@
 
 **Yixu Feng<sup>∗ </sup>, Cheng Zhang<sup>∗ </sup>**, Pei Wang , Peng Wu , Qingsen Yan , Yanning Zhang
 
-<div style="text-align: center;">
+<div align="center">
 
 [![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2402.05809v1)
 
