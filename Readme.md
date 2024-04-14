@@ -36,6 +36,7 @@
 &nbsp;
 
 ## 💡News
+- **2024.04.14** Update test fine tuning result and weights on LOLv1 dataset. 🧾
 
 - **2024.03.04** Update five unpaired datasets (DICM, LIME, MEF, NPE, VV) visual results. ✨
 
@@ -79,3 +80,9 @@ All the weights that we trained on different datasets is available at  [[Baidu P
 | NIQE    | 3.79  | 4.13  | 3.56  | 3.74  | 3.21  |
 | BRISQUE | 21.47 | 16.25 | 13.77 | 18.92 | 30.63 |
 
+- While we don't recommend that you perform finetuning on the test set, in order to demonstrate the effectiveness of our model, we also provide here the results of test finetuning training on the LOLv1 dataset. **Using the fine tuning technique on the test set does make the PSNR metrics higher**, but other metrics are not found to be significantly changed on CIDNet, which may result in a lower generalization of the model, so we do not recommend you do this.
+
+| Folder (test datasets)          | PSNR        | SSIM   | LPIPS      | GT Mean | Results                                                      | Weights Path              |
+| ------------------------------- | ----------- | ------ | ---------- | ------- | ------------------------------------------------------------ | ------------------------- |
+| (LOLv1)<br />v1 test finetuning | **25.4036** | 0.8652 | **0.0897** |         | [Baidu Pan](https://pan.baidu.com/s/1MmUVF4orRWFXURJ4Pnbz2w?pwd=yixu) | LOLv1/test_finetuning.pth |
+| (LOLv1)<br />v1 test finetuning | **27.5969** | 0.8696 | 0.0869     | √       | ditto                                                        | ditto                     |
