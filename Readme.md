@@ -261,6 +261,7 @@ Then, put them in the following folder:
                 ...
     ├── VV
 ```
+</details>
 
 ## 2. Testing 🌒
 
@@ -271,6 +272,7 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
     ├── LOLv1
         ├── w_perc.pth
         ├── wo_perc.pth
+        ├── test_finetuning.pth
     ├── LOLv2_real
         ├── best_PSNR.pth
         ├── best_SSIM.pth
