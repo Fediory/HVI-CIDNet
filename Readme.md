@@ -36,6 +36,8 @@
 &nbsp;
 
 ## 💡News
+- **2024.04.18** Full version Code, models, visual comparison have been released. We promise that all the weights only trained on train sets, and each weights is reproducible. Hope it will help your future work. If you have trained a better result, please contact us. We look forward to subsequent work based on the HVI color "space"! 💎
+
 - **2024.04.14** Update test fine tuning result and weights on LOLv1 dataset. 🧾
 
 - **2024.03.04** Update five unpaired datasets (DICM, LIME, MEF, NPE, VV) visual results. ✨
@@ -46,9 +48,49 @@
 
 
 
+## ⚙ Proposed HVI-CIDNet
+<details close>
+<summary><b>HVI-CIDNet pipeline:</b></summary>
+
+![results3](./pic/pipeline.png)
+
+</details>
+
+<details close>
+<summary><b>CID dual-branch UNet structure:</b></summary>
+
+![results4](./pic/structure.png)
+
+
+</details>
+
+## 🖼 Visual Comparison
+<details close>
+<summary><b>LOL-v1, LOL-v2-real, and LOL-v2-synthetic:</b></summary>
+
+![results1](./pic/LOL.png)
+
+</details>
+
+<details close>
+<summary><b>DICM, LIME, MEF, NPE, and VV:</b></summary>
+
+![results2](./pic/unpaired.png)
+
+
+</details>
+<details close>
+<summary><b>LOL-Blur:</b></summary>
+
+![results2](./pic/blur.png)
+
+
+</details>
+
 ## 🧾Weights and Results
-All the weights that we trained on different datasets is available at  [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`).  Results on  DICM, LIME, MEF, NPE, and VV datasets can be downloaded from [[Baidu Pan](https://pan.baidu.com/s/1ApI5B1q2GPBHWdh8AafjlQ?pwd=yixu)] (code: `yixu`). 
+All the weights that we trained on different datasets is available at [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`).  Results on DICM, LIME, MEF, NPE, and VV datasets can be downloaded from [[Baidu Pan](https://pan.baidu.com/s/1ApI5B1q2GPBHWdh8AafjlQ?pwd=yixu)] (code: `yixu`). 
 **Bolded** fonts represent impressive metrics.
+
 - The metrics of HVI-CIDNet on paired datasets are shown in the following table: 
 
 | Folder (test datasets)                        | PSNR        | SSIM       | LPIPS      | GT Mean | Results                                                      | Weights Path             |
@@ -86,3 +128,269 @@ All the weights that we trained on different datasets is available at  [[Baidu P
 | ------------------------------- | ----------- | ------ | ---------- | ------- | ------------------------------------------------------------ | ------------------------- |
 | (LOLv1)<br />v1 test finetuning | **25.4036** | 0.8652 | **0.0897** |         | [Baidu Pan](https://pan.baidu.com/s/1MmUVF4orRWFXURJ4Pnbz2w?pwd=yixu) | LOLv1/test_finetuning.pth |
 | (LOLv1)<br />v1 test finetuning | **27.5969** | 0.8696 | 0.0869     | √       | ditto                                                        | ditto                     |
+
+
+
+## 1. Get Started 🌑
+
+### Dependencies and Installation
+
+- Python 3.7.0
+- Pytorch 1.13.1
+
+(1) Create Conda Environment
+
+```cmd
+conda create --name CIDNet python=3.7.0
+conda activate CIDNet
+```
+
+(2) Clone Repo
+
+```cmd
+git clone git@github.com:Fediory/HVI-CIDNet.git
+```
+
+(3) Install Dependencies
+
+```cmd
+cd HVI-CIDNet
+pip install -r requirements.txt
+```
+
+
+### Data Preparation
+
+You can refer to the following links to download the datasets. Note that we only use `low_blur` and `high_sharp_scaled` subsets of `LOL-Blur` dataset.
+
+- [LOLv1](https://daooshee.github.io/BMVC2018website/)
+- [LOLv2](https://github.com/flyywh/CVPR-2020-Semi-Low-Light)
+- [LOL-Blur](https://pan.baidu.com/s/1nj054uoLA3gtpV7MNM2eCA?pwd=yixu)(code: `yixu`)
+- [DICM,LIME,MEF,NPE,VV](https://pan.baidu.com/s/1FZ5HWT30eghGuaAqqpJGaw?pwd=yixu)(code: `yixu`)
+- [SICE](https://pan.baidu.com/s/13ghnpTBfDli3mAzE3vnwHg?pwd=yixu)(code: `yixu`)
+- [Sony-Total-Dark](https://pan.baidu.com/s/1mpbwVscbAfQJtkrrzBzJng?pwd=yixu)(code: `yixu`)
+
+Then, put them in the following folder:
+
+<details open> <summary>datasets (click to expand)</summary>
+
+```
+├── datasets
+    ├── DICM
+    ├── LIME
+    ├── LOLv1
+        ├── our485
+            ├──low
+            ├──high
+	    ├── eval15
+            ├──low
+            ├──high
+    ├── LOLv2
+        ├── Real_captured
+            ├── Train
+                ├── Low
+                ├── Normal
+	        ├── Test
+                ├── Low
+                ├── Normal
+        ├── Synthetic
+            ├── Train
+                ├── Low
+                ├── Normal
+	        ├── Test
+                ├── Low
+                ├── Normal
+    ├── LOL_blur
+        ├── eval
+            ├── high_sharp_scaled
+            ├── low_blur
+        ├── test
+            ├── high_sharp_scaled
+                ├── 0012
+                ├── 0017
+                ...
+            ├── low_blur
+                ├── 0012
+                ├── 0017
+                ...
+        ├── train
+            ├── high_sharp_scaled
+                ├── 0000
+                ├── 0001
+                ...
+            ├── low_blur
+                ├── 0000
+                ├── 0001
+                ...
+    ├── MEF
+    ├── NPE
+    ├── SICE
+        ├── Dataset
+            ├── eval
+                ├── target
+                ├── test
+            ├── label
+            ├── train
+                ├── 1
+                ├── 2
+                ...
+        ├── SICE_Grad
+        ├── SICE_Mix
+        ├── SICE_Reshape
+    ├── Sony_total_dark
+        ├── eval
+            ├── long
+            ├── short
+        ├── test
+            ├── long
+                ├── 10003
+                ├── 10006
+                ...
+            ├── short
+                ├── 10003
+                ├── 10006
+                ...
+        ├── train
+            ├── long
+                ├── 00001
+                ├── 00002
+                ...
+            ├── short
+                ├── 00001
+                ├── 00002
+                ...
+    ├── VV
+```
+
+## 2. Testing 🌒
+
+Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`) and put them in folder `weights`:
+
+```
+├── weights
+    ├── LOLv1
+        ├── w_perc.pth
+        ├── wo_perc.pth
+    ├── LOLv2_real
+        ├── best_PSNR.pth
+        ├── best_SSIM.pth
+        ├── w_perc.pth
+    ├── LOLv2_syn
+        ├── w_perc.pth
+        ├── wo_perc.pth
+    ├── LOL-Blur.pth
+    ├── SICE.pth
+    ├── SID.pth
+```
+- **You can test our method as followed, all the results will saved in `./output` folder:**
+
+```cmd
+# LOLv1
+python eval.py --lol --perc # weights that trained with perceptual loss
+python eval.py --lol # weights that trained without perceptual loss
+
+# LOLv2-real
+python eval.py --lol_v2_real --best_GT_mean # you can choose best_GT_mean or best_PSNR or best_SSIM
+
+# LOLv2-syn
+python eval.py --lol_v2_syn --perc # weights that trained with perceptual loss
+python eval.py --lol_v2_syn # weights that trained without perceptual loss
+
+# SICE
+python eval.py --SICE_grad # output SICE_grad
+python eval.py --SICE_mix # output SICE_mix
+
+# Sony-Total-Dark
+python eval_SID_blur --SID
+
+# LOL-Blur
+python eval_SID_blur --Blur
+
+# five unpaired datasets DICM, LIME, MEF, NPE, VV. 
+# We note that: you can choose one weights in ./weights folder, and set the alpha float number (defualt=1.0) as illumination scale of the datasets.
+# You can change "--DICM" to the other unpaired datasets "LIME, MEF, NPE, VV".
+python eval.py --unpaired --DICM --unpaired_weights --alpha
+# e.g.
+python eval.py --unpaired --DICM --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9
+```
+
+- **Also, you can test all the metrics mentioned in our paper as follows:**
+
+```cmd
+# LOLv1
+python measure.py --lol
+
+# LOLv2-real
+python measure.py --lol_v2_real
+
+# LOLv2-syn
+python measure.py --lol_v2_syn
+
+# Sony-Total-Dark
+python measure_SID_blur.py --SID
+
+# LOL-Blur
+python measure_SID_blur.py --Blur
+
+# SICE-Grad
+python measure.py --SICE_grad
+
+# SICE-Mix
+python measure.py --SICE_mix
+
+
+# five unpaired datasets DICM, LIME, MEF, NPE, VV. 
+# You can change "--DICM" to the other unpaired datasets "LIME, MEF, NPE, VV".
+python measure_niqe_bris.py --DICM
+
+
+# Note: Following LLFlow, KinD, and Retinxformer, we have also adjusted the brightness of the output image produced by the network, based on the average value of GroundTruth (GT). This only works in paired datasets. If you want to measure it, please add "--use_GT_mean".
+# 
+# e.g.
+python measure.py --lol --use_GT_mean
+  
+```
+
+- **Evaluating the Parameters, FLOPs, and running time of HVI-CIDNet:**
+
+```cmd
+python net_test.py
+```
+
+
+## 3. Training 🌓
+
+- We put all the configurations that need to be adjusted in the `./data/options.py` folder and explained them in the file. We apologize that some of the training parameters we are no longer able to provide and share with you, but we guarantee that all the weights are trainable by parameter tuning. You can train our HVI-CIDNet by:
+
+```cmd
+python train.py
+```
+
+- All weights are saved to the `./weights/train` folder and are saved in steps of the checkpoint set in the `options.py`  as `epoch_*.pth` where `*` represent the epoch number.
+- Also, for every weight saved, metrics are measured for the validation set and printed to the command line. Finally, the results of all weights' test metrics on the validation set and options in `./data/options.py` will be saved to `./results/training/metrics.md`.
+- In each epoch, we save an output (test) and GT image to the `./results/training` folder to facilitate the visualization of the training results and progress of each epoch, as well as to detect the generation of gradient explosion in advance.
+- After each checkpoint, we save all the validation set outputs for this time in the `./results` folder to the corresponding folder. Note that we use a replacement strategy for different checkpoints for each dataset. That is, we do not save the plots of all checkpoints, but only the weights of each checkpoint.
+  
+
+## 4. Contacts 🌔
+
+If you have any questions, please contact us or submit an issue to the repository!
+
+Yixu Feng (yixu-nwpu@mail.nwpu.edu.cn)
+Cheng Zhang (zhangcheng233@mail.nwpu.edu.cn)
+
+## 5. Citation
+
+If you find our work useful for your research, please cite our paper
+
+```
+@misc{feng2024need,
+      title={You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement}, 
+      author={Yixu Feng and Cheng Zhang and Pei Wang and Peng Wu and Qingsen Yan and Yanning Zhang},
+      year={2024},
+      eprint={2402.05809},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
