@@ -85,7 +85,7 @@ if __name__ == '__main__':
     num_workers = 1
     alpha = None
     if ep.lol:
-        eval_data = DataLoader(dataset=get_eval_set("../datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv1/'
         if ep.perc:
             weight_path = './weights/LOLv1/w_perc.pth'
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         
             
     elif ep.lol_v2_real:
-        eval_data = DataLoader(dataset=get_eval_set("../datasets/LOLv2/Real_captured/Test/Low"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLv2/Real_captured/Test/Low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv2_real/'
         if ep.best_GT_mean:
             weight_path = './weights/LOLv2_real/w_perc.pth'
@@ -108,7 +108,7 @@ if __name__ == '__main__':
             alpha = 0.82
             
     elif ep.lol_v2_syn:
-        eval_data = DataLoader(dataset=get_eval_set("../datasets/LOLv2/Synthetic/Test/Low"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLv2/Synthetic/Test/Low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv2_syn/'
         if ep.perc:
             weight_path = './weights/LOLv2_syn/w_perc.pth'
@@ -116,32 +116,32 @@ if __name__ == '__main__':
             weight_path = './weights/LOLv2_syn/DVCNet_epoch_320_best.pth'
             
     elif ep.SICE_grad:
-        eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/SICE/SICE_Grad"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/SICE/SICE_Grad"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/SICE_grad/'
         weight_path = './weights/SICE.pth'
         norm_size = False
         
     elif ep.SICE_mix:
-        eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/SICE/SICE_Mix"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/SICE/SICE_Mix"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/SICE_mix/'
         weight_path = './weights/SICE.pth'
         norm_size = False
     
     elif ep.unpaired: 
         if ep.DICM:
-            eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/DICM"), num_workers=num_workers, batch_size=1, shuffle=False)
+            eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/DICM"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/DICM/'
         elif ep.LIME:
-            eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/LIME"), num_workers=num_workers, batch_size=1, shuffle=False)
+            eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/LIME"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/LIME/'
         elif ep.MEF:
-            eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/MEF"), num_workers=num_workers, batch_size=1, shuffle=False)
+            eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/MEF"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/MEF/'
         elif ep.NPE:
-            eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/NPE"), num_workers=num_workers, batch_size=1, shuffle=False)
+            eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/NPE"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/NPE/'
         elif ep.VV:
-            eval_data = DataLoader(dataset=get_SICE_eval_set("../datasets/VV"), num_workers=num_workers, batch_size=1, shuffle=False)
+            eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/VV"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/VV/'
         alpha = ep.alpha
         norm_size = False

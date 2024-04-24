@@ -116,19 +116,19 @@ if __name__ == '__main__':
     
     if mea.lol:
         im_dir = './output/LOLv1/*.png'
-        label_dir = '../datasets/LOLdataset/eval15/high/'
+        label_dir = './datasets/LOLdataset/eval15/high/'
     if mea.lol_v2_real:
         im_dir = './output/LOLv2_real/*.png'
-        label_dir = '../datasets/LOLv2/Real_captured/Test/Normal/'
+        label_dir = './datasets/LOLv2/Real_captured/Test/Normal/'
     if mea.lol_v2_syn:
         im_dir = './output/LOLv2_syn/*.png'
-        label_dir = '../datasets/LOLv2/Synthetic/Test/Normal/'
+        label_dir = './datasets/LOLv2/Synthetic/Test/Normal/'
     if mea.SICE_grad:
         im_dir = './output/SICE_grad/*.png'
-        label_dir = '../datasets/SICE/SICE_Reshape/'
+        label_dir = './datasets/SICE/SICE_Reshape/'
     if mea.SICE_mix:
         im_dir = './output/SICE_mix/*.png'
-        label_dir = '../datasets/SICE/SICE_Reshape/'
+        label_dir = './datasets/SICE/SICE_Reshape/'
 
     avg_psnr, avg_ssim, avg_lpips = metrics(im_dir, label_dir, mea.use_GT_mean)
     print("===> Avg.PSNR: {:.4f} dB ".format(avg_psnr))

@@ -46,7 +46,7 @@ if __name__ == '__main__':
     net = CIDNet().cuda()
     if ep.Blur:
         for index in range(1,257):
-            test_dir = "../datasets/LOL_blur/test/low_blur/"
+            test_dir = "./datasets/LOL_blur/test/low_blur/"
             fill_index = str(index).zfill(4)
             now_dir = test_dir + fill_index + "/"
             model_path = "./weights/LOL-Blur.pth"
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         
     elif ep.SID:
         for index in range(1,230):
-            test_dir = "../datasets/Sony_total_dark/test/short/"
+            test_dir = "./datasets/Sony_total_dark/test/short/"
             fill_index = '1' + str(index).zfill(4)
             now_dir = test_dir + fill_index + "/"
             model_path = "./weights/SID.pth"

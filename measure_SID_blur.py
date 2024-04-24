@@ -126,7 +126,7 @@ if __name__ == '__main__':
             fill_index = str(index).zfill(4)
             test_dir = "./output/LOL_Blur/"
             im_dir = test_dir + fill_index + "/*.png"
-            label_dir = '../datasets/LOL_blur/test/high_sharp_scaled/' + fill_index + "/"
+            label_dir = './datasets/LOL_blur/test/high_sharp_scaled/' + fill_index + "/"
             if os.path.exists(test_dir + fill_index):
                 i_psnr, i_ssim, i_lpips, i_n = metrics(im_dir, label_dir,mea.use_GT_mean)
                 print("===> Finish " + fill_index + " folder")
@@ -144,7 +144,7 @@ if __name__ == '__main__':
             fill_index = "1"+str(index).zfill(4)
             test_dir = "./output/SID/"
             im_dir = test_dir + fill_index + "/*.png"
-            label_dir = '../datasets/Sony_total_dark/test/long/' + fill_index + "/"
+            label_dir = './datasets/Sony_total_dark/test/long/' + fill_index + "/"
             if os.path.exists(test_dir + fill_index):
                 i_psnr, i_ssim, i_lpips, i_n = metrics(im_dir, label_dir,mea.use_GT_mean)
                 print("===> Finish " + fill_index + " folder")
