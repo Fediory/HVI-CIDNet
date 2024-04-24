@@ -35,7 +35,7 @@
 
 &nbsp;
 
-## 💡News
+## News 💡
 - **2024.04.18** Full version Code, models, visual comparison have been released. We promise that all the weights only trained on train sets, and each weights is reproducible. Hope it will help your future work. If you have trained a better result, please contact us. We look forward to subsequent work based on the HVI color "space"! 💎
 
 - **2024.04.14** Update test fine tuning result and weights on LOLv1 dataset. 🧾
@@ -87,7 +87,7 @@
 
 </details>
 
-## 🧾Weights and Results
+## Weights and Results 🧾
 All the weights that we trained on different datasets is available at [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`).  Results on DICM, LIME, MEF, NPE, and VV datasets can be downloaded from [[Baidu Pan](https://pan.baidu.com/s/1ApI5B1q2GPBHWdh8AafjlQ?pwd=yixu)] (code: `yixu`). 
 **Bolded** fonts represent impressive metrics.
 
@@ -381,12 +381,12 @@ If you have any questions, please contact us or submit an issue to the repositor
 Yixu Feng (yixu-nwpu@mail.nwpu.edu.cn)
 Cheng Zhang (zhangcheng233@mail.nwpu.edu.cn)
 
-## 5. Citation
+## 5. Citation 🌕
 
 If you find our work useful for your research, please cite our paper
 
 ```
-@misc{feng2024need,
+@misc{feng2024hvi,
       title={You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement}, 
       author={Yixu Feng and Cheng Zhang and Pei Wang and Peng Wu and Qingsen Yan and Yanning Zhang},
       year={2024},
