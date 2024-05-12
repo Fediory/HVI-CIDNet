@@ -36,6 +36,7 @@
 &nbsp;
 
 ## News 💡
+- **2024.05.12** Update peer results on LOLv1. 🤝
 - **2024.04.28** Synchronize all Baidu Pan datasets, outputs, and weights to One Drive. 🌎
 - **2024.04.18** Full version Code, models, visual comparison have been released. We promise that all the weights only trained on train sets, and each weights is reproducible. Hope it will help your future work. If you have trained a better result, please contact us. We look forward to subsequent work based on the HVI color "space"! 💎
 
@@ -130,7 +131,11 @@ All the weights that we trained on different datasets is available at [[Baidu Pa
 | (LOLv1)<br />v1 test finetuning | **25.4036** | 0.8652 | **0.0897** |         | [Baidu Pan](https://pan.baidu.com/s/1MmUVF4orRWFXURJ4Pnbz2w?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24Upgm0szyqstv-exKcV?e=rLXoby) | LOLv1/test_finetuning.pth |
 | (LOLv1)<br />v1 test finetuning | **27.5969** | 0.8696 | 0.0869     | √       | ditto                                                        | ditto                     |
 
+- **Contributions from other peers:** this section is where other peers have trained better versions of weights using our model, and we will show both their weights and results here. If you have trained better weights, please contact us by email or submit issue.
 
+| Datasets | PSNR        | SSIM   | LPIPS  | GT Mean | Results                                                      | Weights Path               | Contributor Detail                              |
+| -------- | ----------- | ------ | ------ | ------- | ------------------------------------------------------------ | -------------------------- | ----------------------------------------------- |
+| LOLv1    | **24.7401** | 0.8604 | 0.0896 |         | [Baidu Pan](https://pan.baidu.com/s/1JKFG9UfZdHA0gyhrT-6Ruw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphCmA1BKfzVUjQDZF?e=cOELSz) | LOLv1/other/PSNR_24.74.pth | [Xi’an Polytechnic University]<br />Yingjian Li |
 
 ## 1. Get Started 🌑
 
