@@ -85,13 +85,12 @@ if __name__ == '__main__':
     num_workers = 1
     alpha = None
     if ep.lol:
-        eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_eval_set("../datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv1/'
         if ep.perc:
             weight_path = './weights/LOLv1/w_perc.pth'
         else:
             weight_path = './weights/LOLv1/wo_perc.pth'
-        weight_path = './weights/train/epoch_500.pth'
         
             
     elif ep.lol_v2_real:
@@ -113,7 +112,7 @@ if __name__ == '__main__':
         if ep.perc:
             weight_path = './weights/LOLv2_syn/w_perc.pth'
         else:
-            weight_path = './weights/LOLv2_syn/DVCNet_epoch_320_best.pth'
+            weight_path = './weights/LOLv2_syn/wo_perc.pth'
             
     elif ep.SICE_grad:
         eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/SICE/SICE_Grad"), num_workers=num_workers, batch_size=1, shuffle=False)
