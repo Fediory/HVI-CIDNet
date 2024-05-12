@@ -133,9 +133,9 @@ All the weights that we trained on different datasets is available at [[Baidu Pa
 
 - **Contributions from other peers:** this section is where other peers have trained better versions of weights using our model, and we will show both their weights and results here. If you have trained better weights, please contact us by email or submit issue.
 
-| Datasets | PSNR        | SSIM   | LPIPS  | GT Mean | Results                                                      | Weights Path               | Contributor Detail                              |
-| -------- | ----------- | ------ | ------ | ------- | ------------------------------------------------------------ | -------------------------- | ----------------------------------------------- |
-| LOLv1    | **24.7401** | 0.8604 | 0.0896 |         | [Baidu Pan](https://pan.baidu.com/s/1JKFG9UfZdHA0gyhrT-6Ruw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphCmA1BKfzVUjQDZF?e=cOELSz) | LOLv1/other/PSNR_24.74.pth | [Xi’an Polytechnic University]<br />Yingjian Li |
+| Datasets | PSNR        | SSIM   | LPIPS  | GT Mean | Results                                                      | Weights Path               | Contributor Detail                              | GPU         |
+| -------- | ----------- | ------ | ------ | ------- | ------------------------------------------------------------ | -------------------------- | ----------------------------------------------- | ----------- |
+| LOLv1    | **24.7401** | 0.8604 | 0.0896 |         | [Baidu Pan](https://pan.baidu.com/s/1JKFG9UfZdHA0gyhrT-6Ruw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphCmA1BKfzVUjQDZF?e=cOELSz) | LOLv1/other/PSNR_24.74.pth | [Xi’an Polytechnic University]<br />Yingjian Li | NVIDIA 4070 |
 
 ## 1. Get Started 🌑
 
