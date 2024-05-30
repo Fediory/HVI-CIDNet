@@ -184,7 +184,7 @@ Then, put them in the following folder:
 ├── datasets
 	├── DICM
 	├── LIME
-	├── LOLv1
+	├── LOLdataset
 		├── our485
 			├──low
 			├──high

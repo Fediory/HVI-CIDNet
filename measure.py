@@ -8,6 +8,7 @@ import numpy as np
 from PIL import Image
 from tqdm import tqdm
 import argparse
+import platform
 
 mea_parser = argparse.ArgumentParser(description='Measure')
 mea_parser.add_argument('--use_GT_mean', action='store_true', help='Use the mean of GT to rectify the output of the model')
@@ -79,8 +80,15 @@ def metrics(im_dir, label_dir, use_GT_mean):
         n += 1
         
         im1 = Image.open(item).convert('RGB') 
-        name = item.split('\\')[-1]
-
+        
+        os_name = platform.system()
+        if os_name.lower() == 'windows':
+            name = item.split('\\')[-1]
+        elif os_name.lower() == 'linux':
+            name = item.split('/')[-1]
+        else:
+            name = item.split('/')[-1]
+            
         im2 = Image.open(label_dir + name).convert('RGB')
         (h, w) = im2.size
         im1 = im1.resize((h, w))  
@@ -116,7 +124,7 @@ if __name__ == '__main__':
     
     if mea.lol:
         im_dir = './output/LOLv1/*.png'
-        label_dir = './datasets/LOLdataset/eval15/high/'
+        label_dir = '../datasets/LOLdataset/eval15/high/'
     if mea.lol_v2_real:
         im_dir = './output/LOLv2_real/*.png'
         label_dir = './datasets/LOLv2/Real_captured/Test/Normal/'
