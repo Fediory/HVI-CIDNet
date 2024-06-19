@@ -1,11 +1,11 @@
 &nbsp;
 # You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement
 
-**Yixu Feng<sup>∗ </sup>, Cheng Zhang<sup>∗ </sup>**, Pei Wang , Peng Wu , Qingsen Yan , Yanning Zhang
+**Qingsen Yan<sup>∗ </sup>, Yixu Feng<sup>∗ </sup>, Cheng Zhang<sup>∗ </sup>**, Pei Wang, Peng Wu, Wei Dong, Jinqiu Sun,  Yanning Zhang
 
 <div align="center">
 
-[![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2402.05809v1)
+[![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2402.05809)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lime)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lime?p=you-only-need-one-color-space-an-efficient)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol?p=you-only-need-one-color-space-an-efficient)
@@ -36,6 +36,7 @@
 &nbsp;
 
 ## News 💡
+- **2024.06.19** Update newest version of paper in [Arxiv](https://arxiv.org/abs/2402.05809).
 - **2024.05.12** Update peer results on LOLv1. 🤝
 - **2024.04.28** Synchronize all Baidu Pan datasets, outputs, and weights to One Drive. 🌎
 - **2024.04.18** Full version Code, models, visual comparison have been released. We promise that all the weights only trained on train sets, and each weights is reproducible. Hope it will help your future work. If you have trained a better result, please contact us. We look forward to subsequent work based on the HVI color "space"! 💎
@@ -59,7 +60,7 @@
 </details>
 
 <details close>
-<summary><b>CID dual-branch UNet structure:</b></summary>
+<summary><b>Lighten Cross-Attention (LCA) Block structure:</b></summary>
 
 ![results4](./pic/structure.png)
 
