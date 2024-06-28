@@ -63,7 +63,7 @@ class RGB_HVI(nn.Module):
         V = torch.clamp(V,-1,1)
         h = torch.atan2(V,H) / (2*pi)
         h = h%1
-        s = torch.sqrt(H**2 + V**2)
+        s = torch.sqrt(H**2 + V**2 + eps)
         
         if self.gated:
             s = s * 1.3
