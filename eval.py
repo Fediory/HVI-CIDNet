@@ -20,6 +20,8 @@ eval_parser.add_argument('--best_GT_mean', action='store_true', help='output lol
 eval_parser.add_argument('--best_PSNR', action='store_true', help='output lol_v2_real dataset best_PSNR')
 eval_parser.add_argument('--best_SSIM', action='store_true', help='output lol_v2_real dataset best_SSIM')
 
+eval_parser.add_argument('--custome', action='store_true', help='output custome dataset')
+eval_parser.add_argument('--custome_path', type=str, default='./YOLO')
 eval_parser.add_argument('--unpaired', action='store_true', help='output unpaired dataset')
 eval_parser.add_argument('--DICM', action='store_true', help='output DICM dataset')
 eval_parser.add_argument('--LIME', action='store_true', help='output LIME dataset')
@@ -85,7 +87,7 @@ if __name__ == '__main__':
     num_workers = 1
     alpha = None
     if ep.lol:
-        eval_data = DataLoader(dataset=get_eval_set("../datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
+        eval_data = DataLoader(dataset=get_eval_set("./datasets/LOLdataset/eval15/low"), num_workers=num_workers, batch_size=1, shuffle=False)
         output_folder = './output/LOLv1/'
         if ep.perc:
             weight_path = './weights/LOLv1/w_perc.pth'
@@ -142,6 +144,9 @@ if __name__ == '__main__':
         elif ep.VV:
             eval_data = DataLoader(dataset=get_SICE_eval_set("./datasets/VV"), num_workers=num_workers, batch_size=1, shuffle=False)
             output_folder = './output/VV/'
+        elif ep.custome:
+            eval_data = DataLoader(dataset=get_SICE_eval_set(ep.custome_path), num_workers=num_workers, batch_size=1, shuffle=False)
+            output_folder = './output/custome/'
         alpha = ep.alpha
         norm_size = False
         weight_path = ep.unpaired_weights

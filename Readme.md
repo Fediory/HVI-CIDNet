@@ -321,6 +321,9 @@ python eval_SID_blur --Blur
 python eval.py --unpaired --DICM --unpaired_weights --alpha
 # e.g.
 python eval.py --unpaired --DICM --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9
+
+# Custome Datasets
+python eval.py --unpaired --custome --custome_path ./your/costome/dataset/path --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9
 ```
 
 - **Also, you can test all the metrics mentioned in our paper as follows:**
