@@ -31,7 +31,7 @@ class CAB(nn.Module):
         k = torch.nn.functional.normalize(k, dim=-1)
 
         attn = (q @ k.transpose(-2, -1)) * self.temperature
-        attn = attn.softmax(attn,dim=-1)
+        attn = nn.functional.softmax(attn,dim=-1)
 
         out = (attn @ v)
 
