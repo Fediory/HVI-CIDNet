@@ -61,7 +61,7 @@ class RGB_HVI(nn.Module):
         V = (V) / (color_sensitive + eps)
         H = torch.clamp(H,-1,1)
         V = torch.clamp(V,-1,1)
-        h = torch.atan2(V,H) / (2*pi)
+        h = torch.atan2(V + eps,H + eps) / (2*pi)
         h = h%1
         s = torch.sqrt(H**2 + V**2 + eps)
         
