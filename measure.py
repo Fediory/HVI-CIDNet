@@ -124,7 +124,7 @@ if __name__ == '__main__':
     
     if mea.lol:
         im_dir = './output/LOLv1/*.png'
-        label_dir = '../datasets/LOLdataset/eval15/high/'
+        label_dir = './datasets/LOLdataset/eval15/high/'
     if mea.lol_v2_real:
         im_dir = './output/LOLv2_real/*.png'
         label_dir = './datasets/LOLv2/Real_captured/Test/Normal/'
