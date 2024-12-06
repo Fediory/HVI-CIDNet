@@ -37,12 +37,12 @@ class RGB_HVI(nn.Module):
         self.this_k = k.item()
         
         color_sensitive = ((value * 0.5 * pi).sin() + eps).pow(k)
-        cx = (2.0 * pi * hue).cos()
-        cy = (2.0 * pi * hue).sin()
-        X = color_sensitive * saturation * cx
-        Y = color_sensitive * saturation * cy
-        Z = value
-        xyz = torch.cat([X, Y, Z],dim=1)
+        ch = (2.0 * pi * hue).cos()
+        cv = (2.0 * pi * hue).sin()
+        H = color_sensitive * saturation * ch
+        V = color_sensitive * saturation * cv
+        I = value
+        xyz = torch.cat([H, V, I],dim=1)
         return xyz
     
     def PHVIT(self, img):
