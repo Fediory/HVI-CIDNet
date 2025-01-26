@@ -11,3 +11,5 @@ torch==1.13.1+cu117
 torchvision==0.14.1
 tqdm==4.65.0
 einops==0.6.1
+lpips==0.1.4
+opencv-python
