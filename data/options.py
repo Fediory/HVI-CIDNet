@@ -10,6 +10,7 @@ def option():
     parser.add_argument('--snapshots', type=int, default=10, help='Snapshots for save checkpoints pth')
     parser.add_argument('--lr', type=float, default=1e-4, help='Learning Rate')
     parser.add_argument('--gpu_mode', type=bool, default=True)
+    parser.add_argument('--shuffle', type=bool, default=True)
     parser.add_argument('--threads', type=int, default=16, help='number of threads for dataloader to use')
 
     # choose a scheduler
