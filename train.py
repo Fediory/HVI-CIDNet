@@ -47,7 +47,14 @@ def train(epoch):
         im1, im2, path1, path2 = batch[0], batch[1], batch[2], batch[3]
         im1 = im1.cuda()
         im2 = im2.cuda()
-        output_rgb = model(im1)  
+        
+        # use random gamma function (enhancement curve) to improve generalization
+        if opt.gamma:
+            gamma = random.randint(opt.start_gamma,opt.end_gamma) / 100.0
+            output_rgb = model(im1 ** gamma)  
+        else:
+            output_rgb = model(im1)  
+            
         gt_rgb = im2
         output_hvi = model.HVIT(output_rgb)
         gt_hvi = model.HVIT(gt_rgb)

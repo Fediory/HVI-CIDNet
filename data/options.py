@@ -55,6 +55,11 @@ def option():
     parser.add_argument('--D_weight',  type=float, default=0.5)
     parser.add_argument('--E_weight',  type=float, default=50.0)
     parser.add_argument('--P_weight',  type=float, default=1e-2)
+    
+    # use random gamma function (enhancement curve) to improve generalization
+    parser.add_argument('--gamma', type=bool, default=False)
+    parser.add_argument('--start_gamma', type=int, default=60)
+    parser.add_argument('--end_gamma', type=int, default=120)
 
 
     # choose which dataset you want to train, please only set one "True"

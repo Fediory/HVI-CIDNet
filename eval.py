@@ -29,12 +29,13 @@ eval_parser.add_argument('--MEF', action='store_true', help='output MEF dataset'
 eval_parser.add_argument('--NPE', action='store_true', help='output NPE dataset')
 eval_parser.add_argument('--VV', action='store_true', help='output VV dataset')
 eval_parser.add_argument('--alpha', type=float, default=1.0)
+eval_parser.add_argument('--gamma', type=float, default=1.0)
 eval_parser.add_argument('--unpaired_weights', type=str, default='./weights/LOLv2_syn/w_perc.pth')
 
 ep = eval_parser.parse_args()
 
 
-def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LOL=False,v2=False,unpaired=False,alpha=1.0):
+def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LOL=False,v2=False,unpaired=False,alpha=1.0,gamma=1.0):
     torch.set_grad_enabled(False)
     model.load_state_dict(torch.load(model_path, map_location=lambda storage, loc: storage))
     print('Pre-trained model is loaded.')
@@ -55,7 +56,7 @@ def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LO
                 input, name, h, w = batch[0], batch[1], batch[2], batch[3]
             
             input = input.cuda()
-            output = model(input) 
+            output = model(input**gamma) 
             
         if not os.path.exists(output_folder):          
             os.mkdir(output_folder)  
@@ -152,5 +153,5 @@ if __name__ == '__main__':
         weight_path = ep.unpaired_weights
         
     eval_net = CIDNet().cuda()
-    eval(eval_net, eval_data, weight_path, output_folder,norm_size=norm_size,LOL=ep.lol,v2=ep.lol_v2_real,unpaired=ep.unpaired,alpha=alpha)
+    eval(eval_net, eval_data, weight_path, output_folder,norm_size=norm_size,LOL=ep.lol,v2=ep.lol_v2_real,unpaired=ep.unpaired,alpha=alpha,gamma=ep.gamma)
 

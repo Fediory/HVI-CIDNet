@@ -36,7 +36,8 @@
 &nbsp;
 
 ## News 💡
-- **2024.06.19** Update newest version of paper in [Arxiv](https://arxiv.org/abs/2402.05809).
+- **2025.01.31** Update train code. Use random gamma function (enhancement curve) to improve cross-dataset generalization. 🔆
+- **2024.06.19** Update newest version of paper in [Arxiv](https://arxiv.org/abs/2402.05809). 📝
 - **2024.05.12** Update peer results on LOLv1. 🤝
 - **2024.04.28** Synchronize all Baidu Pan datasets, outputs, and weights to One Drive. 🌎
 - **2024.04.18** Full version Code, models, visual comparison have been released. We promise that all the weights only trained on train sets, and each weights is reproducible. Hope it will help your future work. If you have trained a better result, please contact us. We look forward to subsequent work based on the HVI color "space"! 💎
