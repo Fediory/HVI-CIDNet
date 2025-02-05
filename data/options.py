@@ -19,7 +19,7 @@ def option():
 
     # warmup training
     parser.add_argument('--warmup_epochs', type=int, default=3, help='warmup_epochs')
-    parser.add_argument('--start_warmup', type=bool, default=True, help='turn False without warmup') 
+    parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to train without warmup') 
 
     # train datasets
     parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/train')
@@ -61,7 +61,11 @@ def option():
     parser.add_argument('--start_gamma', type=int, default=60)
     parser.add_argument('--end_gamma', type=int, default=120)
 
-
+    # auto grad, turn off to speed up training
+    parser.add_argument('--grad_detect', type=bool, default=True, help='if gradient explosion occurs, turn-on it')
+    parser.add_argument('--grad_clip', type=bool, default=True, help='if gradient fluctuates too much, turn-on it')
+    
+    
     # choose which dataset you want to train, please only set one "True"
     parser.add_argument('--lol_v1', type=bool, default=True)
     parser.add_argument('--lolv2_real', type=bool, default=False)
