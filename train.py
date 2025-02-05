@@ -14,6 +14,7 @@ from data.data import *
 from loss.losses import *
 from data.scheduler import *
 from tqdm import tqdm
+from datetime import datetime
 
 opt = option().parse_args()
 
@@ -257,7 +258,8 @@ if __name__ == '__main__':
             print(lpips)
         torch.cuda.empty_cache()
     
-    with open("./results/training/metrics.md", "w") as f:
+    now = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    with open(f"./results/training/metrics{now}.md", "w") as f:
         f.write("dataset: "+ output_folder + "\n")  
         f.write(f"lr: {opt.lr}\n")  
         f.write(f"batch size: {opt.batchSize}\n")  
@@ -270,5 +272,5 @@ if __name__ == '__main__':
         f.write("| Epochs | PSNR | SSIM | LPIPS |\n")  
         f.write("|----------------------|----------------------|----------------------|----------------------|\n")  
         for i in range(len(psnr)):
-            f.write(f"| {(i+1)*10} | { psnr[i]:.4f} | {ssim[i]:.4f} | {lpips[i]:.4f} |\n")  
+            f.write(f"| {opt.start_epoch+(i+1)*opt.snapshots} | { psnr[i]:.4f} | {ssim[i]:.4f} | {lpips[i]:.4f} |\n")  
         

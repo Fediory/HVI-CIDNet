@@ -380,7 +380,7 @@ python train.py
 ```
 
 - All weights are saved to the `./weights/train` folder and are saved in steps of the checkpoint set in the `options.py`  as `epoch_*.pth` where `*` represent the epoch number.
-- Also, for every weight saved, metrics are measured for the validation set and printed to the command line. Finally, the results of all weights' test metrics on the validation set and options in `./data/options.py` will be saved to `./results/training/metrics.md`.
+- Also, for every weight saved, metrics are measured for the validation set and printed to the command line. Finally, the results of all weights' test metrics on the validation set and options in `./data/options.py` will be saved to `./results/training/metrics-YYYY-mm-dd-HHMMSS.md`.
 - In each epoch, we save an output (test) and GT image to the `./results/training` folder to facilitate the visualization of the training results and progress of each epoch, as well as to detect the generation of gradient explosion in advance.
 - After each checkpoint, we save all the validation set outputs for this time in the `./results` folder to the corresponding folder. Note that we use a replacement strategy for different checkpoints for each dataset. That is, we do not save the plots of all checkpoints, but only the weights of each checkpoint.
   
