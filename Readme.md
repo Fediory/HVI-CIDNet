@@ -126,6 +126,15 @@ All the weights that we trained on different datasets is available at [[Baidu Pa
 | NIQE    | 3.79  | 4.13  | 3.56  | 3.74  | 3.21  |
 | BRISQUE | 21.47 | 16.25 | 13.77 | 18.92 | 30.63 |
 
+Furthermore, **we found that use random gamma function in the training process can improve the generalization of CIDNet.** You can see details in `train.py` line 53-55, also you can turn-on the random-gamma mode in `data/options.py` line 60 during training process.
+
+We trained on LOLv2-Syn dataset with the random-gamma mode, and save the weights as `LOLv2_syn/generalization.pth` (you can find in the link). The performance are shown in the following table, and you can see 7 metrics improved:
+
+| metrics | DICM  | LIME  | MEF   | NPE   | VV    | Results                                                      |
+| ------- | ----- | ----- | ----- | ----- | ----- | ------------------------------------------------------------ |
+| NIQE    | 3.55  | 3.85  | 3.46  | 3.82  | 3.24  | [Baidu Pan](https://pan.baidu.com/s/1hhsWpcqqMyMnSogDCm_MXg?pwd=yixu) and [One Drive](https://1drv.ms/f/c/2985db836826d183/Eu7lGsiqJplMra5SIV5-HGcBeBE7LI9qbGR7q6RltthBSA?e=BDaRAP) |
+| BRISQUE | 25.62 | 16.02 | 13.08 | 18.90 | 29.55 | ditto                                                        |
+
 - While we don't recommend that you perform finetuning on the test set, in order to demonstrate the effectiveness of our model, we also provide here the results of test finetuning training on the LOLv1 dataset. **Using the fine tuning technique on the test set does make the PSNR metrics higher**, but other metrics are not found to be significantly changed on CIDNet, which may result in a lower generalization of the model, so we do not recommend you do this.
 
 | Folder (test datasets)          | PSNR        | SSIM   | LPIPS      | GT Mean | Results                                                      | Weights Path              |
@@ -286,6 +295,7 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
         ├── best_SSIM.pth
         ├── w_perc.pth
     ├── LOLv2_syn
+		├── generalization.pth
         ├── w_perc.pth
         ├── wo_perc.pth
     ├── LOL-Blur.pth
@@ -318,13 +328,14 @@ python eval_SID_blur --Blur
 
 # five unpaired datasets DICM, LIME, MEF, NPE, VV. 
 # We note that: you can choose one weights in ./weights folder, and set the alpha float number (defualt=1.0) as illumination scale of the datasets.
+# gamma denotes the gamma function (curve), see line 59 of "eval.py"
 # You can change "--DICM" to the other unpaired datasets "LIME, MEF, NPE, VV".
 python eval.py --unpaired --DICM --unpaired_weights --alpha
 # e.g.
-python eval.py --unpaired --DICM --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9
+python eval.py --unpaired --DICM --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9 --gamma 0.9
 
-# Custome Datasets
-python eval.py --unpaired --custome --custome_path ./your/costome/dataset/path --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9
+# Custome Datasets: alpha and gamma are optional.
+python eval.py --unpaired --custome --custome_path ./your/costome/dataset/path --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9 --gamma 0.9
 ```
 
 - **Also, you can test all the metrics mentioned in our paper as follows:**
