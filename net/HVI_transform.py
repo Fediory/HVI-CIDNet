@@ -10,6 +10,7 @@ class RGB_HVI(nn.Module):
         self.gated = False
         self.gated2= False
         self.alpha = 1.0
+        self.alpha_s = 1.3
         self.this_k = 0
         
     def HVIT(self, img):
@@ -66,7 +67,7 @@ class RGB_HVI(nn.Module):
         s = torch.sqrt(H**2 + V**2 + eps)
         
         if self.gated:
-            s = s * 1.3
+            s = s * self.alpha_s
         
         s = torch.clamp(s,0,1)
         v = torch.clamp(v,0,1)

@@ -47,6 +47,7 @@ def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LO
         model.trans.gated2 = True
         model.trans.alpha = alpha
     elif unpaired:
+        model.trans.gated2 = True
         model.trans.alpha = alpha
     for batch in tqdm(testing_data_loader):
         with torch.no_grad():
