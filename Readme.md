@@ -6,6 +6,7 @@
 <div align="center">
 
 [![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2402.05809)
+[![Gradio Demo](https://img.shields.io/badge/Gradio-Demo-blue)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lime)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lime?p=you-only-need-one-color-space-an-efficient)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol?p=you-only-need-one-color-space-an-efficient)
@@ -35,7 +36,15 @@
 
 &nbsp;
 
+<details open>
+<summary><b>HVI-CIDNet Demo:</b></summary>
+
+![results3](./pic/ui.png)
+
+</details>
+
 ## News 💡
+- **2025.02.20** A test demo of our model is available on [Hugging Face](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_). 🤗
 - **2025.01.31** Update train code. Use random gamma function (enhancement curve) to improve cross-dataset generalization. 🔆
 - **2024.06.19** Update newest version of paper in [Arxiv](https://arxiv.org/abs/2402.05809). 📝
 - **2024.05.12** Update peer results on LOLv1. 🤝
@@ -52,7 +61,7 @@
 
 
 
-## ⚙ Proposed HVI-CIDNet
+## Proposed HVI-CIDNet ⚙ 
 <details close>
 <summary><b>HVI-CIDNet pipeline:</b></summary>
 
@@ -68,7 +77,7 @@
 
 </details>
 
-## 🖼 Visual Comparison
+## Visual Comparison 🖼 
 <details close>
 <summary><b>LOL-v1, LOL-v2-real, and LOL-v2-synthetic:</b></summary>
 
@@ -282,6 +291,7 @@ Then, put them in the following folder:
 
 ## 2. Testing 🌒
 
+
 Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`) and put them in folder `weights`:
 
 ```
@@ -302,7 +312,8 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
     ├── SICE.pth
     ├── SID.pth
 ```
-- **You can test our method as followed, all the results will saved in `./output` folder:**
+- **You can test our method in our gradio demo with bash code `python app.py`, and go to the URL link "http://127.0.0.1:7862" to enjoy the demo.**
+- or **You can test our method as followed, all the results will saved in `./output` folder:**
 
 ```bash
 # LOLv1
