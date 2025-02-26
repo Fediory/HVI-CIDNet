@@ -1,7 +1,7 @@
 &nbsp;
-# You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement
+# [CVPR2025] You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement
 
-**Qingsen Yan<sup>∗ </sup>, Yixu Feng<sup>∗ </sup>, Cheng Zhang<sup>∗ </sup>**, Pei Wang, Peng Wu, Wei Dong, Jinqiu Sun,  Yanning Zhang
+**[Qingsen Yan](https://scholar.google.com/citations?user=BSGy3foAAAAJ)<sup>∗ </sup>, [Yixu Feng](https://scholar.google.com/citations?user=WljJ2HUAAAAJ)<sup>∗ </sup>, [Cheng Zhang](https://scholar.google.com/citations?user=L_Av9NcAAAAJ)<sup>∗ </sup>**, Pei Wang, Peng Wu, Wei Dong, Jinqiu Sun,  Yanning Zhang
 
 <div align="center">
 
@@ -43,7 +43,8 @@
 
 </details>
 
-## News 💡
+## News 🆕
+- **2025.02.26** Congratulations! Our sub-paper "HVI: A New color space for Low-light Image Enhancement" has been accepted by **CVPR 2025**. 🔥
 - **2025.02.20** A test demo of our model is available on [Hugging Face](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_). 🤗
 - **2025.01.31** Update train code. Use random gamma function (enhancement curve) to improve cross-dataset generalization. 🔆
 - **2024.06.19** Update newest version of paper in [Arxiv](https://arxiv.org/abs/2402.05809). 📝
@@ -57,7 +58,7 @@
 
 - **2024.03.03** Update pre-trained weights and output results on our HVI-CIDNet using Baidu Pan. 🧾
 
-- **2024.02.08**  Update HVI-CIDNet in [Arxiv](https://arxiv.org/abs/2402.05809v1). The new code, models and results will be uploaded. 🎈
+- **2024.02.08** Update HVI-CIDNet original-version paper as "You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement" in [Arxiv](https://arxiv.org/abs/2402.05809v1). The new code, models and results will be uploaded. 🎈
 
 
 
@@ -143,6 +144,12 @@ We trained on LOLv2-Syn dataset with the random-gamma mode, and save the weights
 | ------- | ----- | ----- | ----- | ----- | ----- | ------------------------------------------------------------ |
 | NIQE    | 3.55  | 3.85  | 3.46  | 3.82  | 3.24  | [Baidu Pan](https://pan.baidu.com/s/1hhsWpcqqMyMnSogDCm_MXg?pwd=yixu) and [One Drive](https://1drv.ms/f/c/2985db836826d183/Eu7lGsiqJplMra5SIV5-HGcBeBE7LI9qbGR7q6RltthBSA?e=BDaRAP) |
 | BRISQUE | 25.62 | 16.02 | 13.08 | 18.90 | 29.55 | ditto                                                        |
+
+The weights with the "strongest" generalization ability we put on the HVI-CIDNet demo on the Hugging Face website, which we highly recommend. Here are its NIQE metrics on five unpaired datasets, which you can easily reproduce on Hugging Face:
+
+| metrics | DICM  | LIME  | MEF   | NPE   | VV    | Average |
+| ------- | ----- | ----- | ----- | ----- | ----- | ------- |
+| NIQE    | 3.36  | 3.03  | 3.11  | 3.33  | 2.49  | 3.13    |
 
 - While we don't recommend that you perform finetuning on the test set, in order to demonstrate the effectiveness of our model, we also provide here the results of test finetuning training on the LOLv1 dataset. **Using the fine tuning technique on the test set does make the PSNR metrics higher**, but other metrics are not found to be significantly changed on CIDNet, which may result in a lower generalization of the model, so we do not recommend you do this.
 

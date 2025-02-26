@@ -64,16 +64,16 @@ interface = gr.Interface(
     fn=process_image,
     inputs=[
         gr.Image(label="Low-light Image", type="pil"),
-        gr.Radio(choices=['Yes','No'],label="Image Score"),
-        gr.Radio(choices=pth_files2,label="Model Path"),
-        gr.Slider(0.1,10,label="gamma curve",step=0.01,value=1.0),
-        gr.Slider(0,2,label="Alpha-s",step=0.01,value=1.0),
-        gr.Slider(0.1,2,label="Alpha-i",step=0.01,value=1.0)
+        gr.Radio(choices=['Yes','No'],label="Image Score",info="Calculate NIQE and BRISQUE, default is \"No\"."),
+        gr.Radio(choices=pth_files2,label="Model Weights",info="Choose your model. The best models are \"SICE.pth\" and \"generalization.pth\"."),
+        gr.Slider(0.1,5,label="gamma curve",step=0.01,value=1.0, info="Lower is lighter, and best range is [0.5,2.5]."),
+        gr.Slider(0,2,label="Alpha-s",step=0.01,value=1.0, info="Higher is more saturated."),
+        gr.Slider(0.1,2,label="Alpha-i",step=0.01,value=1.0, info="Higher is lighter.")
     ],
     outputs=[
         gr.Image(label="Result", type="pil"),
-        gr.Textbox(label="NIQE"),
-        gr.Textbox(label="BRISQUE")
+        gr.Textbox(label="NIQE",info="Lower is better."),
+        gr.Textbox(label="BRISQUE",info="Lower is better.")
     ],
     title="HVI-CIDNet (Low-Light Image Enhancement)",
     allow_flagging="never"
