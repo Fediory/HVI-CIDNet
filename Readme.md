@@ -1,4 +1,9 @@
 &nbsp;
+
+<div align="center">
+<p align="center"> <img src="pic/logo.png" width="600px"> </p>
+
+
 # [CVPR2025] HVI: A New Color Space for Low-light Image Enhancement
 
 **[Qingsen Yan](https://scholar.google.com/citations?user=BSGy3foAAAAJ)<sup>∗ </sup>, [Yixu Feng](https://scholar.google.com/citations?user=WljJ2HUAAAAJ)<sup>∗ </sup>, [Cheng Zhang](https://scholar.google.com/citations?user=L_Av9NcAAAAJ)<sup>∗ </sup>**,  [Guansong Pang](https://scholar.google.com/citations?user=1ZO7pHkAAAAJ), Kangbiao Shi, [Peng Wu](https://scholar.google.com/citations?user=QkNqUH4AAAAJ), Wei Dong, Jinqiu Sun,  [Yanning Zhang](https://scholar.google.com/citations?user=-wzlS7QAAAAJ)
@@ -7,8 +12,8 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 
 <div align="center">
 
-[![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2402.05809)
-[![Gradio Demo](https://img.shields.io/badge/Gradio-Demo-blue)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
+[![arXiv](https://img.shields.io/badge/arxiv-paper-179bd3)](https://arxiv.org/abs/2502.20272)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lime)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lime?p=you-only-need-one-color-space-an-efficient)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol?p=you-only-need-one-color-space-an-efficient)
