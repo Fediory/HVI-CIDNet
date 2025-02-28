@@ -1,7 +1,7 @@
 &nbsp;
 
 
-<p align="center"> <img src="pic/logo.png" width="600px"> </p>
+<p align="center"> <img src="pic/logo.png" width="500px"> </p>
 
 
 # [CVPR2025] HVI: A New Color Space for Low-light Image Enhancement
