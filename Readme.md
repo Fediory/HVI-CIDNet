@@ -440,6 +440,13 @@ Cheng Zhang (zhangcheng233@mail.nwpu.edu.cn)
 If you find our work useful for your research, please cite our paper
 
 ```
+@article{yan2025hvi,
+  title={HVI: A New color space for Low-light Image Enhancement},
+  author={Yan, Qingsen and Feng, Yixu and Zhang, Cheng and Pang, Guansong and Shi, Kangbiao and Wu, Peng and Dong, Wei and Sun, Jinqiu and Zhang, Yanning},
+  journal={arXiv preprint arXiv:2502.20272},
+  year={2025}
+}
+
 @misc{feng2024hvi,
       title={You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement}, 
       author={Yixu Feng and Cheng Zhang and Pei Wang and Peng Wu and Qingsen Yan and Yanning Zhang},

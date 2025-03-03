@@ -8,6 +8,7 @@ import torch.nn.functional as F
 import os
 import imquality.brisque as brisque
 from loss.niqe_utils import *
+import platform
 
 eval_net = CIDNet().cuda()
 eval_net.trans.gated = True
@@ -53,10 +54,15 @@ def find_pth_files(directory):
     return pth_files
 
 def remove_weights_prefix(paths):
-    cleaned_paths = [path.replace('.\\weights\\', '') for path in paths]
+    os_name = platform.system()
+    if os_name.lower() == 'windows':
+        cleaned_paths = [path.replace('weights\\', '') for path in paths]
+    elif os_name.lower() == 'linux':
+        cleaned_paths = [path.replace('weights/', '') for path in paths]
+        
     return cleaned_paths
 
-directory = ".\weights"
+directory = "weights"
 pth_files = find_pth_files(directory)
 pth_files2 = remove_weights_prefix(pth_files)
 
