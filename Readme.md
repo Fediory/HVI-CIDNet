@@ -333,7 +333,7 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
     ├── SICE.pth
     ├── SID.pth
 ```
-- **You can test our method in our gradio demo with bash code `python app.py`, and go to the URL link "http://127.0.0.1:7862" to enjoy the demo.**
+- **You can test our method in our gradio demo with bash code `python app.py`, and go to the URL link "http://127.0.0.1:7862" to enjoy the demo.** (add `--cpu` can inference CPU-only)
 - or **You can test our method as followed, all the results will saved in `./output` folder:**
 
 ```bash

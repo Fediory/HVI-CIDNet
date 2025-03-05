@@ -9,8 +9,17 @@ import os
 import imquality.brisque as brisque
 from loss.niqe_utils import *
 import platform
+import argparse
 
-eval_net = CIDNet().cuda()
+opt_parser = argparse.ArgumentParser(description='Measure')
+opt_parser.add_argument('--cpu', action='store_true', help='CPU-Only')
+opt = opt_parser.parse_args()
+
+if opt.cpu:
+    eval_net = CIDNet().cpu()
+else:
+    eval_net = CIDNet().cuda()
+    
 eval_net.trans.gated = True
 eval_net.trans.gated2 = True
 
@@ -30,8 +39,15 @@ def process_image(input_img,score,model_path,gamma,alpha_s=1.0,alpha_i=1.0):
     with torch.no_grad():
         eval_net.trans.alpha_s = alpha_s
         eval_net.trans.alpha = alpha_i
-        output = eval_net(input.cuda()**gamma)
-    output = torch.clamp(output.cuda(),0,1).cuda()
+        if opt.cpu:
+            output = eval_net(input**gamma)
+        else:
+            output = eval_net(input.cuda()**gamma)
+            
+    if opt.cpu:
+        output = torch.clamp(output,0,1)
+    else:
+        output = torch.clamp(output.cuda(),0,1).cuda()
     output = output[:, :, :h, :w]
     enhanced_img = transforms.ToPILImage()(output.squeeze(0))
     if score == 'Yes':
