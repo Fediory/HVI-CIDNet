@@ -1,12 +1,11 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from einops import rearrange
 from net.HVI_transform import RGB_HVI
 from net.transformer_utils import *
 from net.LCA import *
+from huggingface_hub import PyTorchModelHubMixin
 
-class CIDNet(nn.Module):
+class CIDNet(nn.Module, PyTorchModelHubMixin):
     def __init__(self, 
                  channels=[36, 36, 72, 144],
                  heads=[1, 2, 4, 8],
@@ -67,7 +66,7 @@ class CIDNet(nn.Module):
         self.I_LCA5 = I_LCA(ch3, head3)
         self.I_LCA6 = I_LCA(ch2, head2)
         
-        self.trans = RGB_HVI().cuda()
+        self.trans = RGB_HVI()
         
     def forward(self, x):
         dtypes = x.dtype

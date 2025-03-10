@@ -11,7 +11,7 @@ from loss.niqe_utils import *
 import platform
 import argparse
 
-opt_parser = argparse.ArgumentParser(description='Measure')
+opt_parser = argparse.ArgumentParser(description='App')
 opt_parser.add_argument('--cpu', action='store_true', help='CPU-Only')
 opt = opt_parser.parse_args()
 

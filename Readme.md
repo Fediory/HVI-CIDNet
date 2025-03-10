@@ -11,7 +11,8 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 <div align="center">
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2502.20272)
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-violet)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
+[![Gradio Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Gradio%20-Spaces-violet)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
+[![Hugging Face Paper](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Paper-red)](https://huggingface.co/papers/2502.20272)
 [![zhihu](https://img.shields.io/badge/zhihu-知乎-179bd3)](https://zhuanlan.zhihu.com/p/27130836644)
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lime)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lime?p=you-only-need-one-color-space-an-efficient)
@@ -50,6 +51,7 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 </details>
 
 ## News 🆕
+- **2025.03.10** All weights are public at [Hugging Face](https://huggingface.co/papers/2502.20272). Special Thanks to Niels Rogge, Wauplin, and hysts.🔆
 - **2025.02.26** Congratulations! Our final-version paper "HVI: A New color space for Low-light Image Enhancement" has been accepted by **CVPR 2025**. 🔥
 - **2025.02.20** A test demo of our model is available on [Hugging Face](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_). 🤗
 - **2025.01.31** Update train code. Use random gamma function (enhancement curve) to improve cross-dataset generalization. 🔆
@@ -119,7 +121,10 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 All the weights that we trained on different datasets is available at [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`) and [[One Drive](https://1drv.ms/f/s!AoPRJmiD24UpgloqG-S67l1BX0cG?e=0b4GL0)] (code: `yixu`).  Results on DICM, LIME, MEF, NPE, and VV datasets can be downloaded from [[Baidu Pan](https://pan.baidu.com/s/1ApI5B1q2GPBHWdh8AafjlQ?pwd=yixu)] (code: `yixu`) and [[One Drive](https://1drv.ms/f/s!AoPRJmiD24UphBK3DimfMTv74FOi?e=3tkhva)] (code: `yixu`). 
 **Bolded** fonts represent impressive metrics.
 
-- The metrics of HVI-CIDNet on paired datasets are shown in the following table, all the link code is `yixu`: 
+<details close>
+<summary><b>The metrics of HVI-CIDNet on paired datasets are shown in the following table: </b></summary>
+
+All the link code is `yixu`.
 
 | Folder (test datasets)                        | PSNR        | SSIM       | LPIPS      | GT Mean | Results                                                      | Weights Path             |
 | --------------------------------------------- | ----------- | ---------- | ---------- | ------- | ------------------------------------------------------------ | ------------------------ |
@@ -143,8 +148,11 @@ All the weights that we trained on different datasets is available at [[Baidu Pa
 | SICE-Mix                                      | **13.4235** | 0.6360     | 0.3624     | √       | [Baidu Pan](https://pan.baidu.com/s/11x4oJuIKE0iJqdqagG1RhQ?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24Upgn1oKivqyksR4ld9?e=JcA0y4) | SICE.pth                 |
 | SICE-Grad                                     | **13.4453** | 0.6477     | 0.3181     | √       | [Baidu Pan](https://pan.baidu.com/s/1IICeonyuUHcUfTapa4GKxw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UpgnyGiBYyTvFyV9gg?e=7veJSh) | SICE.pth                 |
 
-- Performance on five unpaired datasets are shown in the following table: 
+</details>
 
+<details close>
+<summary><b>Performance on five unpaired datasets are shown in the following table:  </b></summary>
+  
 | metrics | DICM  | LIME  | MEF   | NPE   | VV    |
 | ------- | ----- | ----- | ----- | ----- | ----- |
 | NIQE    | 3.79  | 4.13  | 3.56  | 3.74  | 3.21  |
@@ -165,18 +173,29 @@ The weights with the "strongest" generalization ability we put on the HVI-CIDNet
 | ------- | ----- | ----- | ----- | ----- | ----- | ------- |
 | NIQE    | 3.36  | 3.03  | 3.11  | 3.33  | 2.49  | 3.13    |
 
+</details>
+
+<details close>
+<summary><b>Test Finetune:  </b></summary>
+
 - While we don't recommend that you perform finetuning on the test set, in order to demonstrate the effectiveness of our model, we also provide here the results of test finetuning training on the LOLv1 dataset. **Using the fine tuning technique on the test set does make the PSNR metrics higher**, but other metrics are not found to be significantly changed on CIDNet, which may result in a lower generalization of the model, so we do not recommend you do this.
 
 | Folder (test datasets)          | PSNR        | SSIM   | LPIPS      | GT Mean | Results                                                      | Weights Path              |
 | ------------------------------- | ----------- | ------ | ---------- | ------- | ------------------------------------------------------------ | ------------------------- |
 | (LOLv1)<br />v1 test finetuning | **25.4036** | 0.8652 | **0.0897** |         | [Baidu Pan](https://pan.baidu.com/s/1MmUVF4orRWFXURJ4Pnbz2w?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24Upgm0szyqstv-exKcV?e=rLXoby) | LOLv1/test_finetuning.pth |
 | (LOLv1)<br />v1 test finetuning | **27.5969** | 0.8696 | 0.0869     | √       | ditto                                                        | ditto                     |
+</details>
 
-- **Contributions from other peers:** this section is where other peers have trained better versions of weights using our model, and we will show both their weights and results here. If you have trained better weights, please contact us by email or submit issue.
+<details close>
+<summary><b>Contributions from other peers: </b></summary>
+
+- This section is where other peers have trained better versions of weights using our model, and we will show both their weights and results here. If you have trained better weights, please contact us by email or submit issue.
 
 | Datasets | PSNR        | SSIM   | LPIPS  | GT Mean | Results                                                      | Weights Path               | Contributor Detail                              | GPU         |
 | -------- | ----------- | ------ | ------ | ------- | ------------------------------------------------------------ | -------------------------- | ----------------------------------------------- | ----------- |
 | LOLv1    | **24.7401** | 0.8604 | 0.0896 |         | [Baidu Pan](https://pan.baidu.com/s/1JKFG9UfZdHA0gyhrT-6Ruw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphCmA1BKfzVUjQDZF?e=cOELSz) | LOLv1/other/PSNR_24.74.pth | [Xi’an Polytechnic University]<br />Yingjian Li | NVIDIA 4070 |
+
+</details>
 
 ## 1. Get Started 🌑
 
@@ -219,7 +238,7 @@ You can refer to the following links to download the datasets. Note that we only
 
 Then, put them in the following folder:
 
-<details open> <summary>datasets (click to expand)</summary>
+<details close> <summary>datasets (click to expand)</summary>
 
 ```
 ├── datasets
@@ -315,6 +334,7 @@ Then, put them in the following folder:
 
 Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`) and put them in folder `weights`:
 
+<details close> <summary>weights (click to expand)</summary>
 ```
 ├── weights
     ├── LOLv1
@@ -326,15 +346,29 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
         ├── best_SSIM.pth
         ├── w_perc.pth
     ├── LOLv2_syn
-		├── generalization.pth
+        ├── generalization.pth
         ├── w_perc.pth
         ├── wo_perc.pth
     ├── LOL-Blur.pth
     ├── SICE.pth
     ├── SID.pth
 ```
+</details>
+
 - **You can test our method in our gradio demo with bash code `python app.py`, and go to the URL link "http://127.0.0.1:7862" to enjoy the demo.** (add `--cpu` can inference CPU-only)
+- or You can use `huggingface_hub` to download and test our method as:
+```bash
+# you can find all weights in https://huggingface.co/papers/2502.20272
+python eval_hf.py --path fediory/our_model_path --input_img your/img/path --alpha_s 1.0 --alpha_i 1.0 --gamma 1.0
+
+# for example
+python eval_hf.py --path fediory/HVI-CIDNet-LOLv1-wperc --input_img ./datasets/DICM/01.JPG --alpha_s 1.0 --alpha_i 1.0 --gamma 1.0
+```
+and your enhanced image will be saved at `./output_hf`.
+
 - or **You can test our method as followed, all the results will saved in `./output` folder:**
+
+<details close> <summary>(click to expand)</summary>
 
 ```bash
 # LOLv1
@@ -370,7 +404,12 @@ python eval.py --unpaired --DICM --unpaired_weights ./weights/LOLv2_syn/w_perc.p
 python eval.py --unpaired --custome --custome_path ./your/costome/dataset/path --unpaired_weights ./weights/LOLv2_syn/w_perc.pth --alpha 0.9 --gamma 0.9
 ```
 
+</details>
+
 - **Also, you can test all the metrics mentioned in our paper as follows:**
+  
+  
+<details close> <summary>(click to expand)</summary>
 
 ```bash
 # LOLv1
@@ -406,6 +445,8 @@ python measure_niqe_bris.py --DICM
 python measure.py --lol --use_GT_mean
   
 ```
+
+</details>
 
 - **Evaluating the Parameters, FLOPs, and running time of HVI-CIDNet:**
 
