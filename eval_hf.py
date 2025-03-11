@@ -59,6 +59,8 @@ output = torch.clamp(output.cuda(),0,1).cuda()
 output = output[:, :, :h, :w]
 enhanced_img = transforms.ToPILImage()(output.squeeze(0))
 output_folder = './output_hf'
+if not os.path.exists(output_folder):          
+    os.mkdir(output_folder)  
 item = el.input_img
 name = item.split('/')[-1]
 enhanced_img.save(output_folder + "/" + name)
