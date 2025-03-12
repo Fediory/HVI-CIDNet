@@ -4,7 +4,7 @@
 
 # [CVPR2025] HVI: A New Color Space for Low-light Image Enhancement
 
-**[Qingsen Yan](https://scholar.google.com/citations?user=BSGy3foAAAAJ)<sup>∗ </sup>, [Yixu Feng](https://scholar.google.com/citations?user=WljJ2HUAAAAJ)<sup>∗ </sup>, [Cheng Zhang](https://scholar.google.com/citations?user=L_Av9NcAAAAJ)<sup>∗ </sup>**,  [Guansong Pang](https://scholar.google.com/citations?user=1ZO7pHkAAAAJ), Kangbiao Shi, [Peng Wu](https://scholar.google.com/citations?user=QkNqUH4AAAAJ), Wei Dong, Jinqiu Sun,  [Yanning Zhang](https://scholar.google.com/citations?user=-wzlS7QAAAAJ)
+**[Qingsen Yan](https://scholar.google.com/citations?user=BSGy3foAAAAJ)<sup>∗ </sup>, [Yixu Feng](https://scholar.google.com/citations?user=WljJ2HUAAAAJ)<sup>∗ </sup>, [Cheng Zhang](https://scholar.google.com/citations?user=L_Av9NcAAAAJ)**,  [Guansong Pang](https://scholar.google.com/citations?user=1ZO7pHkAAAAJ), Kangbiao Shi, [Peng Wu](https://scholar.google.com/citations?user=QkNqUH4AAAAJ), Wei Dong, Jinqiu Sun,  [Yanning Zhang](https://scholar.google.com/citations?user=-wzlS7QAAAAJ)
 
 Previous Version: [You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement](https://arxiv.org/abs/2402.05809)
 
@@ -335,6 +335,7 @@ Then, put them in the following folder:
 Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB3XgjaA?pwd=yixu)] (code: `yixu`) and put them in folder `weights`:
 
 <details close> <summary>weights (click to expand)</summary>
+
 ```
 ├── weights
     ├── LOLv1
@@ -353,6 +354,7 @@ Download our weights from [[Baidu Pan](https://pan.baidu.com/s/1rvQcQPwsYbtLIYwB
     ├── SICE.pth
     ├── SID.pth
 ```
+
 </details>
 
 - **You can test our method in our gradio demo with bash code `python app.py`, and go to the URL link "http://127.0.0.1:7862" to enjoy the demo.** (add `--cpu` can inference CPU-only)
