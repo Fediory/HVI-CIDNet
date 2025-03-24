@@ -131,4 +131,4 @@ class SICEDatasetFromFolder(data.Dataset):
         return im1, im2, file1, file2
 
     def __len__(self):
-        return 2456
+        return 4803
