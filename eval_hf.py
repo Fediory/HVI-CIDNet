@@ -52,6 +52,8 @@ input = F.pad(input.unsqueeze(0), (0,padw,0,padh), 'reflect')
 with torch.no_grad():
     model.trans.alpha_s = el.alpha_s
     model.trans.alpha = el.alpha_i
+    model.trans.gated = True
+    model.trans.gated2 = True
     output = model(input.cuda()**el.gamma)
         
 
