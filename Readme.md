@@ -51,6 +51,7 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 </details>
 
 ## News 🆕
+- **2025.06.03** Special Thanks for Kangbiao Shi for training HVI-CIDNet on FiveK dataset follow retinexformer. The training code and models are avaliable now. 🔆
 - **2025.05.01** Our NTIRE2025 LLIE track championship solution, FusionNet, is now public at [Arxiv](https://arxiv.org/pdf/2504.19295)! 📝
 - **2025.03.27** Congratulations! Our team achived [1st place](https://drive.google.com/file/d/1CSXNssZQK5Y_KUWUx3_nYLv-plJn_K43/view) in the competition: [NTIRE 2025 Low Light Image Enhancement Challenge](https://codalab.lisn.upsaclay.fr/competitions/21636) (If you have any question about our NTIRE method, please contact: Kangbiao Shi, email: 18334840904@163.com). We fused our HVI-CIDNet with last year's winner and runner-up models to get the optimal results. We will explain the fusion method thoroughly in detail in the report for subsequent reference. 🚀
 - **2025.03.10** All weights are public at [Hugging Face](https://huggingface.co/papers/2502.20272). Special Thanks to [Niels Rogge](https://github.com/NielsRogge), [Wauplin](https://github.com/Wauplin), and [hysts](https://huggingface.co/hysts).🔆
@@ -149,6 +150,7 @@ All the link code is `yixu`.
 | LOL-Blur                                      | **26.5719** | **0.8903** | **0.1203** |         | [Baidu Pan](https://pan.baidu.com/s/11zTPd3xrJe0GbEXF_lYHvQ?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24Upgn7AOw_WmC9Yg-z0?e=WeiUi8) | LOL-Blur.pth             |
 | SICE-Mix                                      | **13.4235** | 0.6360     | 0.3624     | √       | [Baidu Pan](https://pan.baidu.com/s/11x4oJuIKE0iJqdqagG1RhQ?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24Upgn1oKivqyksR4ld9?e=JcA0y4) | SICE.pth                 |
 | SICE-Grad                                     | **13.4453** | 0.6477     | 0.3181     | √       | [Baidu Pan](https://pan.baidu.com/s/1IICeonyuUHcUfTapa4GKxw?pwd=yixu) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UpgnyGiBYyTvFyV9gg?e=7veJSh) | SICE.pth                 |
+| FiveK<br />follow [Retinexformer](https://github.com/caiyuanhao1998/Retinexformer)                                     | 24.4587 | 0.8769     | 0.0851     |        | [Baidu Pan](https://pan.baidu.com/s/1Cv7SbzVoIA2oyX7sAl5ynA?pwd=yixu) and [One Drive](https://1drv.ms/u/c/2985db836826d183/EWiQ-YME-F9DrMA9r4wt-QIBjFCegAn9fU6WDYXbPwzgbg?e=KKe7q9) | fivek.pth                 |
 
 </details>
 
@@ -237,6 +239,7 @@ You can refer to the following links to download the datasets. Note that we only
 - DICM,LIME,MEF,NPE,VV: [Baidu Pan](https://pan.baidu.com/s/1FZ5HWT30eghGuaAqqpJGaw?pwd=yixu)(code: `yixu`) and [One Drive](https://1drv.ms/f/s!AoPRJmiD24UphBNGBbsDmSwppNPf?e=2yGImv)(code: `yixu`)
 - SICE: [Baidu Pan](https://pan.baidu.com/s/13ghnpTBfDli3mAzE3vnwHg?pwd=yixu)(code: `yixu`) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphAlaTIekdMLwLZnA?e=WxrfOa)(code: `yixu`)
 - Sony-Total-Dark(SID): [Baidu Pan](https://pan.baidu.com/s/1mpbwVscbAfQJtkrrzBzJng?pwd=yixu)(code: `yixu`) and [One Drive](https://1drv.ms/u/s!AoPRJmiD24UphAie9l0DuMN20PB7?e=Zc5DcA)(code: `yixu`)
+- FiveK (follow [Retinexformer](https://github.com/caiyuanhao1998/Retinexformer)): [Baidu Disk](https://pan.baidu.com/s/1ajax7N9JmttTwY84-8URxA?pwd=cyh2) (code:`cyh2`), [Google Drive](https://drive.google.com/file/d/11HEUmchFXyepI4v3dhjnDnmhW_DgwfRR/view?usp=sharing)
 
 Then, put them in the following folder:
 
@@ -245,6 +248,13 @@ Then, put them in the following folder:
 ```
 ├── datasets
 	├── DICM
+	├── FiveK
+		├── test
+			├──input
+			├──target
+		├── train
+			├──input
+			├──target
 	├── LIME
 	├── LOLdataset
 		├── our485
@@ -390,6 +400,9 @@ python eval.py --lol_v2_syn # weights that trained without perceptual loss
 python eval.py --SICE_grad # output SICE_grad
 python eval.py --SICE_mix # output SICE_mix
 
+# FiveK
+python eval.py --fivek # output FiveK follow Retinexformer
+
 # Sony-Total-Dark
 python eval_SID_blur --SID
 
@@ -437,6 +450,9 @@ python measure.py --SICE_grad
 # SICE-Mix
 python measure.py --SICE_mix
 
+# fivek
+python measure.py --fivek
+
 
 # five unpaired datasets DICM, LIME, MEF, NPE, VV. 
 # You can change "--DICM" to the other unpaired datasets "LIME, MEF, NPE, VV".
@@ -478,7 +494,6 @@ python train.py
 If you have any questions, please contact us or submit an issue to the repository!
 
 Yixu Feng (yixu-nwpu@mail.nwpu.edu.cn)
-Cheng Zhang (zhangcheng233@mail.nwpu.edu.cn)
 
 ## 5. Citation 🌕
 

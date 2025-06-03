@@ -2,6 +2,7 @@ from torchvision.transforms import Compose, ToTensor, RandomCrop, RandomHorizont
 from data.LOLdataset import *
 from data.eval_sets import *
 from data.SICE_blur_SID import *
+from data.fivek import *
 
 def transform1(size=256):
     return Compose([
@@ -44,3 +45,9 @@ def get_SICE_eval_set(data_dir):
 
 def get_eval_set(data_dir):
     return DatasetFromFolderEval(data_dir, transform=transform2())
+
+def get_fivek_training_set(data_dir,size):
+    return FiveKDatasetFromFolder(data_dir, transform=transform1(size))
+
+def get_fivek_eval_set(data_dir):
+    return SICEDatasetFromFolderEval(data_dir, transform=transform2())

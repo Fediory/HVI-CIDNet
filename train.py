@@ -143,6 +143,12 @@ def load_datasets():
             training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
             test_set = get_SICE_eval_set(opt.data_val_SICE_grad)
             testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
+            
+        if opt.fivek:
+            train_set = get_fivek_training_set(opt.data_train_SICE,size=opt.cropSize)
+            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
+            test_set = get_fivek_eval_set(opt.data_val_SICE_grad)
+            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
     else:
         raise Exception("should choose a dataset")
     return training_data_loader, testing_data_loader
@@ -243,6 +249,11 @@ if __name__ == '__main__':
             if opt.SICE_grad:
                 output_folder = 'SICE_grad/'
                 label_dir = opt.data_valgt_SICE_grad
+                norm_size = False
+                
+            if opt.fivek:
+                output_folder = 'fivek/'
+                label_dir = opt.data_valgt_fivek
                 norm_size = False
 
             im_dir = opt.val_folder + output_folder + '*.png'
