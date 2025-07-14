@@ -51,6 +51,7 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 </details>
 
 ## News 🆕
+- **2025.07.11** Upgraded version paper as "HVI-CIDNet+: Beyond Extreme Darkness for Low-Light Image Enhancement" in [Arxiv](https://arxiv.org/abs/2507.06814). The new code, models and results will be uploaded soon. (code_link：[Github](https://github.com/shikangbiao/CIDNet_extension))
 - **2025.06.03** Special Thanks for Kangbiao Shi for training HVI-CIDNet on FiveK dataset follow retinexformer. The training code and models are avaliable now. 🔆
 - **2025.05.01** Our NTIRE2025 LLIE track championship solution, FusionNet, is now public at [Arxiv](https://arxiv.org/pdf/2504.19295)! 📝
 - **2025.03.27** Congratulations! Our team achived [1st place](https://drive.google.com/file/d/1CSXNssZQK5Y_KUWUx3_nYLv-plJn_K43/view) in the competition: [NTIRE 2025 Low Light Image Enhancement Challenge](https://codalab.lisn.upsaclay.fr/competitions/21636) (If you have any question about our NTIRE method, please contact: Kangbiao Shi, email: 18334840904@163.com). We fused our HVI-CIDNet with last year's winner and runner-up models to get the optimal results. We will explain the fusion method thoroughly in detail in the report for subsequent reference. 🚀
@@ -156,7 +157,7 @@ All the link code is `yixu`.
 
 <details close>
 <summary><b>Performance on five unpaired datasets are shown in the following table:  </b></summary>
-  
+
 | metrics | DICM  | LIME  | MEF   | NPE   | VV    |
 | ------- | ----- | ----- | ----- | ----- | ----- |
 | NIQE    | 3.79  | 4.13  | 3.56  | 3.74  | 3.21  |
