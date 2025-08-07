@@ -5,14 +5,6 @@ import imquality.brisque as brisque
 from loss.niqe_utils import *
 import argparse
 
-eval_parser = argparse.ArgumentParser(description='Eval')
-eval_parser.add_argument('--DICM', action='store_true', help='output DICM dataset')
-eval_parser.add_argument('--LIME', action='store_true', help='output LIME dataset')
-eval_parser.add_argument('--MEF', action='store_true', help='output MEF dataset')
-eval_parser.add_argument('--NPE', action='store_true', help='output NPE dataset')
-eval_parser.add_argument('--VV', action='store_true', help='output VV dataset')
-ep = eval_parser.parse_args()
-
 
 def metrics(im_dir):
     avg_niqe = 0
@@ -38,6 +30,14 @@ def metrics(im_dir):
     return avg_niqe, avg_brisque
 
 if __name__ == '__main__':
+
+    eval_parser = argparse.ArgumentParser(description='Eval')
+    eval_parser.add_argument('--DICM', action='store_true', help='output DICM dataset')
+    eval_parser.add_argument('--LIME', action='store_true', help='output LIME dataset')
+    eval_parser.add_argument('--MEF', action='store_true', help='output MEF dataset')
+    eval_parser.add_argument('--NPE', action='store_true', help='output NPE dataset')
+    eval_parser.add_argument('--VV', action='store_true', help='output VV dataset')
+    ep = eval_parser.parse_args()
 
     if ep.DICM:
         im_dir = './output/DICM/*.jpg'

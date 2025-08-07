@@ -7,16 +7,6 @@ from torch.utils.data import DataLoader
 from net.CIDNet import CIDNet
 
 
-eval_parser = argparse.ArgumentParser(description='Eval')
-eval_parser.add_argument('--SID', action='store_true')
-eval_parser.add_argument('--Blur', action='store_true')
-ep = eval_parser.parse_args()
-
-cuda = True
-if cuda and not torch.cuda.is_available():
-    raise Exception("No GPU found, please run without --cuda")
-
-
 def eval(model, testing_data_loader, model_path, output_folder):
     torch.set_grad_enabled(False)
     model.load_state_dict(torch.load(model_path, map_location=lambda storage, loc: storage))
@@ -42,6 +32,16 @@ def eval(model, testing_data_loader, model_path, output_folder):
     torch.set_grad_enabled(True)
     
 if __name__ == '__main__':
+
+    eval_parser = argparse.ArgumentParser(description='Eval')
+    eval_parser.add_argument('--SID', action='store_true')
+    eval_parser.add_argument('--Blur', action='store_true')
+    ep = eval_parser.parse_args()
+
+    cuda = True
+    if cuda and not torch.cuda.is_available():
+        raise Exception("No GPU found, please run without --cuda")
+
 
     net = CIDNet().cuda()
     if ep.Blur:
