@@ -1,5 +1,13 @@
 import argparse
 
+def _str2bool(v):
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
 def option():
     # Training settings
     parser = argparse.ArgumentParser(description='CIDNet')
@@ -9,17 +17,17 @@ def option():
     parser.add_argument('--start_epoch', type=int, default=0, help='number of epochs to start, >0 is retrained a pre-trained pth')
     parser.add_argument('--snapshots', type=int, default=10, help='Snapshots for save checkpoints pth')
     parser.add_argument('--lr', type=float, default=1e-4, help='Learning Rate')
-    parser.add_argument('--gpu_mode', type=bool, default=True)
-    parser.add_argument('--shuffle', type=bool, default=True)
+    parser.add_argument('--gpu_mode', type=_str2bool, default=True)
+    parser.add_argument('--shuffle', type=_str2bool, default=True)
     parser.add_argument('--threads', type=int, default=16, help='number of threads for dataloader to use')
 
     # choose a scheduler
-    parser.add_argument('--cos_restart_cyclic', type=bool, default=False)
-    parser.add_argument('--cos_restart', type=bool, default=True)
+    parser.add_argument('--cos_restart_cyclic', type=_str2bool, default=False)
+    parser.add_argument('--cos_restart', type=_str2bool, default=True)
 
     # warmup training
     parser.add_argument('--warmup_epochs', type=int, default=3, help='warmup_epochs')
-    parser.add_argument('--start_warmup', type=bool, default=True, help='turn False to train without warmup') 
+    parser.add_argument('--start_warmup', type=_str2bool, default=True, help='turn False to train without warmup') 
 
     # train datasets
     parser.add_argument('--data_train_lol_blur'     , type=str, default='./datasets/LOL_blur/train')
@@ -60,22 +68,25 @@ def option():
     parser.add_argument('--P_weight',  type=float, default=1e-2)
     
     # use random gamma function (enhancement curve) to improve generalization
-    parser.add_argument('--gamma', type=bool, default=False)
+    parser.add_argument('--gamma', type=_str2bool, default=False)
     parser.add_argument('--start_gamma', type=int, default=60)
     parser.add_argument('--end_gamma', type=int, default=120)
 
     # auto grad, turn off to speed up training
-    parser.add_argument('--grad_detect', type=bool, default=False, help='if gradient explosion occurs, turn-on it')
-    parser.add_argument('--grad_clip', type=bool, default=True, help='if gradient fluctuates too much, turn-on it')
+    parser.add_argument('--grad_detect', type=_str2bool, default=False, help='if gradient explosion occurs, turn-on it')
+    parser.add_argument('--grad_clip', type=_str2bool, default=True, help='if gradient fluctuates too much, turn-on it')
     
     
-    # choose which dataset you want to train, please only set one "True"
-    parser.add_argument('--lol_v1', type=bool, default=True)
-    parser.add_argument('--lolv2_real', type=bool, default=False)
-    parser.add_argument('--lolv2_syn', type=bool, default=False)
-    parser.add_argument('--lol_blur', type=bool, default=False)
-    parser.add_argument('--SID', type=bool, default=False)
-    parser.add_argument('--SICE_mix', type=bool, default=False)
-    parser.add_argument('--SICE_grad', type=bool, default=False)
-    parser.add_argument('--fivek', type=bool, default=False)
+    # choose which dataset you want to train
+    parser.add_argument('--dataset', type=str, default='lol_v1',
+    choices=['lol_v1',
+             'lolv2_real',
+             'lolv2_syn',
+             'lol_blur', 
+             'SID',
+             'SICE_mix',
+             'SICE_grad',
+             'fivek'],
+    help='Select the dataset to train on (default: %(default)s)')
+
     return parser

@@ -10,15 +10,7 @@ from tqdm import tqdm
 import argparse
 import platform
 
-mea_parser = argparse.ArgumentParser(description='Measure')
-mea_parser.add_argument('--use_GT_mean', action='store_true', help='Use the mean of GT to rectify the output of the model')
-mea_parser.add_argument('--lol', action='store_true', help='measure lolv1 dataset')
-mea_parser.add_argument('--lol_v2_real', action='store_true', help='measure lol_v2_real dataset')
-mea_parser.add_argument('--lol_v2_syn', action='store_true', help='measure lol_v2_syn dataset')
-mea_parser.add_argument('--SICE_grad', action='store_true', help='measure SICE_grad dataset')
-mea_parser.add_argument('--SICE_mix', action='store_true', help='measure SICE_mix dataset')
-mea_parser.add_argument('--fivek', action='store_true', help='measure fivek dataset')
-mea = mea_parser.parse_args()
+
 
 def ssim(prediction, target):
     C1 = (0.01 * 255)**2
@@ -123,6 +115,16 @@ def metrics(im_dir, label_dir, use_GT_mean):
 
 if __name__ == '__main__':
     
+    mea_parser = argparse.ArgumentParser(description='Measure')
+    mea_parser.add_argument('--use_GT_mean', action='store_true', help='Use the mean of GT to rectify the output of the model')
+    mea_parser.add_argument('--lol', action='store_true', help='measure lolv1 dataset')
+    mea_parser.add_argument('--lol_v2_real', action='store_true', help='measure lol_v2_real dataset')
+    mea_parser.add_argument('--lol_v2_syn', action='store_true', help='measure lol_v2_syn dataset')
+    mea_parser.add_argument('--SICE_grad', action='store_true', help='measure SICE_grad dataset')
+    mea_parser.add_argument('--SICE_mix', action='store_true', help='measure SICE_mix dataset')
+    mea_parser.add_argument('--fivek', action='store_true', help='measure fivek dataset')
+    mea = mea_parser.parse_args()
+
     if mea.lol:
         im_dir = './output/LOLv1/*.png'
         label_dir = './datasets/LOLdataset/eval15/high/'

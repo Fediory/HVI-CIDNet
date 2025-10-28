@@ -8,33 +8,6 @@ from torch.utils.data import DataLoader
 from loss.losses import *
 from net.CIDNet import CIDNet
 
-eval_parser = argparse.ArgumentParser(description='Eval')
-eval_parser.add_argument('--perc', action='store_true', help='trained with perceptual loss')
-eval_parser.add_argument('--lol', action='store_true', help='output lolv1 dataset')
-eval_parser.add_argument('--lol_v2_real', action='store_true', help='output lol_v2_real dataset')
-eval_parser.add_argument('--lol_v2_syn', action='store_true', help='output lol_v2_syn dataset')
-eval_parser.add_argument('--SICE_grad', action='store_true', help='output SICE_grad dataset')
-eval_parser.add_argument('--SICE_mix', action='store_true', help='output SICE_mix dataset')
-eval_parser.add_argument('--fivek', action='store_true', help='output FiveK dataset')
-
-eval_parser.add_argument('--best_GT_mean', action='store_true', help='output lol_v2_real dataset best_GT_mean')
-eval_parser.add_argument('--best_PSNR', action='store_true', help='output lol_v2_real dataset best_PSNR')
-eval_parser.add_argument('--best_SSIM', action='store_true', help='output lol_v2_real dataset best_SSIM')
-
-eval_parser.add_argument('--custome', action='store_true', help='output custome dataset')
-eval_parser.add_argument('--custome_path', type=str, default='./YOLO')
-eval_parser.add_argument('--unpaired', action='store_true', help='output unpaired dataset')
-eval_parser.add_argument('--DICM', action='store_true', help='output DICM dataset')
-eval_parser.add_argument('--LIME', action='store_true', help='output LIME dataset')
-eval_parser.add_argument('--MEF', action='store_true', help='output MEF dataset')
-eval_parser.add_argument('--NPE', action='store_true', help='output NPE dataset')
-eval_parser.add_argument('--VV', action='store_true', help='output VV dataset')
-eval_parser.add_argument('--alpha', type=float, default=1.0)
-eval_parser.add_argument('--gamma', type=float, default=1.0)
-eval_parser.add_argument('--unpaired_weights', type=str, default='./weights/LOLv2_syn/w_perc.pth')
-
-ep = eval_parser.parse_args()
-
 
 def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LOL=False,v2=False,unpaired=False,alpha=1.0,gamma=1.0):
     torch.set_grad_enabled(False)
@@ -79,6 +52,34 @@ def eval(model, testing_data_loader, model_path, output_folder,norm_size=True,LO
     
 if __name__ == '__main__':
     
+    eval_parser = argparse.ArgumentParser(description='Eval')
+    eval_parser.add_argument('--perc', action='store_true', help='trained with perceptual loss')
+    eval_parser.add_argument('--lol', action='store_true', help='output lolv1 dataset')
+    eval_parser.add_argument('--lol_v2_real', action='store_true', help='output lol_v2_real dataset')
+    eval_parser.add_argument('--lol_v2_syn', action='store_true', help='output lol_v2_syn dataset')
+    eval_parser.add_argument('--SICE_grad', action='store_true', help='output SICE_grad dataset')
+    eval_parser.add_argument('--SICE_mix', action='store_true', help='output SICE_mix dataset')
+    eval_parser.add_argument('--fivek', action='store_true', help='output FiveK dataset')
+
+    eval_parser.add_argument('--best_GT_mean', action='store_true', help='output lol_v2_real dataset best_GT_mean')
+    eval_parser.add_argument('--best_PSNR', action='store_true', help='output lol_v2_real dataset best_PSNR')
+    eval_parser.add_argument('--best_SSIM', action='store_true', help='output lol_v2_real dataset best_SSIM')
+
+    eval_parser.add_argument('--custome', action='store_true', help='output custome dataset')
+    eval_parser.add_argument('--custome_path', type=str, default='./YOLO')
+    eval_parser.add_argument('--unpaired', action='store_true', help='output unpaired dataset')
+    eval_parser.add_argument('--DICM', action='store_true', help='output DICM dataset')
+    eval_parser.add_argument('--LIME', action='store_true', help='output LIME dataset')
+    eval_parser.add_argument('--MEF', action='store_true', help='output MEF dataset')
+    eval_parser.add_argument('--NPE', action='store_true', help='output NPE dataset')
+    eval_parser.add_argument('--VV', action='store_true', help='output VV dataset')
+    eval_parser.add_argument('--alpha', type=float, default=1.0)
+    eval_parser.add_argument('--gamma', type=float, default=1.0)
+    eval_parser.add_argument('--unpaired_weights', type=str, default='./weights/LOLv2_syn/w_perc.pth')
+
+    ep = eval_parser.parse_args()
+
+
     cuda = True
     if cuda and not torch.cuda.is_available():
         raise Exception("No GPU found, or need to change CUDA_VISIBLE_DEVICES number")

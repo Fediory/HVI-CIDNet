@@ -100,57 +100,43 @@ def checkpoint(epoch):
     return model_out_path
     
 def load_datasets():
-    print('===> Loading datasets')
-    if opt.lol_v1 or opt.lol_blur or opt.lolv2_real or opt.lolv2_syn or opt.SID or opt.SICE_mix or opt.SICE_grad or opt.fivek:
-        if opt.lol_v1:
-            train_set = get_lol_training_set(opt.data_train_lol_v1,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_lol_v1)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-            
-        if opt.lol_blur:
-            train_set = get_training_set_blur(opt.data_train_lol_blur,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_lol_blur)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-
-        if opt.lolv2_real:
-            train_set = get_lol_v2_training_set(opt.data_train_lolv2_real,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_lolv2_real)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-            
-        if opt.lolv2_syn:
-            train_set = get_lol_v2_syn_training_set(opt.data_train_lolv2_syn,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_lolv2_syn)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
+    print(f'===> Loading datasets: {opt.dataset}')
+    if opt.dataset == 'lol_v1':
+        train_set = get_lol_training_set(opt.data_train_lol_v1,size=opt.cropSize)
+        test_set = get_eval_set(opt.data_val_lol_v1)
         
-        if opt.SID:
-            train_set = get_SID_training_set(opt.data_train_SID,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_eval_set(opt.data_val_SID)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-            
-        if opt.SICE_mix:
-            train_set = get_SICE_training_set(opt.data_train_SICE,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_SICE_eval_set(opt.data_val_SICE_mix)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-            
-        if opt.SICE_grad:
-            train_set = get_SICE_training_set(opt.data_train_SICE,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_SICE_eval_set(opt.data_val_SICE_grad)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
-            
-        if opt.fivek:
-            train_set = get_fivek_training_set(opt.data_train_fivek,size=opt.cropSize)
-            training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
-            test_set = get_fivek_eval_set(opt.data_val_fivek)
-            testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
+    elif opt.dataset == 'lol_blur':
+        train_set = get_training_set_blur(opt.data_train_lol_blur,size=opt.cropSize)
+        test_set = get_eval_set(opt.data_val_lol_blur)
+
+    elif opt.dataset == 'lolv2_real':
+        train_set = get_lol_v2_training_set(opt.data_train_lolv2_real,size=opt.cropSize)
+        test_set = get_eval_set(opt.data_val_lolv2_real)
+        
+    elif opt.dataset == 'lolv2_syn':
+        train_set = get_lol_v2_syn_training_set(opt.data_train_lolv2_syn,size=opt.cropSize)
+        test_set = get_eval_set(opt.data_val_lolv2_syn)
+    
+    elif opt.dataset == 'SID':
+        train_set = get_SID_training_set(opt.data_train_SID,size=opt.cropSize)
+        test_set = get_eval_set(opt.data_val_SID)
+        
+    elif opt.dataset == 'SICE_mix':
+        train_set = get_SICE_training_set(opt.data_train_SICE,size=opt.cropSize)
+        test_set = get_SICE_eval_set(opt.data_val_SICE_mix)
+        
+    elif opt.dataset == 'SICE_grad':
+        train_set = get_SICE_training_set(opt.data_train_SICE,size=opt.cropSize)
+        test_set = get_SICE_eval_set(opt.data_val_SICE_grad)
+        
+    elif opt.dataset == 'fivek':
+        train_set = get_fivek_training_set(opt.data_train_fivek,size=opt.cropSize)
+        test_set = get_fivek_eval_set(opt.data_val_fivek)
     else:
         raise Exception("should choose a dataset")
+    
+    training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize, shuffle=opt.shuffle)
+    testing_data_loader = DataLoader(dataset=test_set, num_workers=opt.threads, batch_size=1, shuffle=False)
     return training_data_loader, testing_data_loader
 
 def build_model():
@@ -223,42 +209,44 @@ if __name__ == '__main__':
             norm_size = True
 
             # LOL three subsets
-            if opt.lol_v1:
+            if opt.dataset == 'lol_v1':
                 output_folder = 'LOLv1/'
                 label_dir = opt.data_valgt_lol_v1
-            if opt.lolv2_real:
+            if opt.dataset == 'lolv2_real':
                 output_folder = 'LOLv2_real/'
                 label_dir = opt.data_valgt_lolv2_real
-            if opt.lolv2_syn:
+            if opt.dataset == 'lolv2_syn':
                 output_folder = 'LOLv2_syn/'
                 label_dir = opt.data_valgt_lolv2_syn
             
             # LOL-blur dataset with low_blur and high_sharp_scaled
-            if opt.lol_blur:
+            if opt.dataset == 'lol_blur':
                 output_folder = 'LOL_blur/'
                 label_dir = opt.data_valgt_lol_blur
                 
-            if opt.SID:
+            if opt.dataset == 'SID':
                 output_folder = 'SID/'
                 label_dir = opt.data_valgt_SID
                 npy = True
-            if opt.SICE_mix:
+            if opt.dataset == 'SICE_mix':
                 output_folder = 'SICE_mix/'
                 label_dir = opt.data_valgt_SICE_mix
                 norm_size = False
-            if opt.SICE_grad:
+            if opt.dataset == 'SICE_grad':
                 output_folder = 'SICE_grad/'
                 label_dir = opt.data_valgt_SICE_grad
                 norm_size = False
                 
-            if opt.fivek:
+            if opt.dataset == 'fivek':
                 output_folder = 'fivek/'
                 label_dir = opt.data_valgt_fivek
                 norm_size = False
 
             im_dir = opt.val_folder + output_folder + '*.png'
+            is_lol_v1 = (opt.dataset == 'lol_v1')
+            is_lolv2_real = (opt.dataset == 'lolv2_real')
             eval(model, testing_data_loader, model_out_path, opt.val_folder+output_folder, 
-                 norm_size=norm_size, LOL=opt.lol_v1, v2=opt.lolv2_real, alpha=0.8)
+                 norm_size=norm_size, LOL=is_lol_v1, v2=is_lolv2_real, alpha=0.8)
             
             avg_psnr, avg_ssim, avg_lpips = metrics(im_dir, label_dir, use_GT_mean=False)
             print("===> Avg.PSNR: {:.4f} dB ".format(avg_psnr))
