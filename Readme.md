@@ -9,35 +9,10 @@
 Previous Version: [You Only Need One Color Space: An Efficient Network for Low-light Image Enhancement](https://arxiv.org/abs/2402.05809)
 
 <div align="center">
-
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2502.20272)
 [![Gradio Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Gradio%20-Spaces-violet)](https://huggingface.co/spaces/Fediory/HVI-CIDNet_Low-light-Image-Enhancement_)
 [![Hugging Face Paper](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Paper-green)](https://huggingface.co/papers/2502.20272)
 [![zhihu](https://img.shields.io/badge/zhihu-知乎-179bd3)](https://zhuanlan.zhihu.com/p/27130836644)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lime)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lime?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol?p=you-only-need-one-color-space-an-efficient)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol-v2)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol-v2?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lol-v2-1)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lol-v2-1?p=you-only-need-one-color-space-an-efficient)
-
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lolv2-1)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lolv2-1?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-npe)](https://paperswithcode.com/sota/low-light-image-enhancement-on-npe?p=you-only-need-one-color-space-an-efficient)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/image-enhancement-on-sice-grad)](https://paperswithcode.com/sota/image-enhancement-on-sice-grad?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/image-enhancement-on-sice-mix)](https://paperswithcode.com/sota/image-enhancement-on-sice-mix?p=you-only-need-one-color-space-an-efficient)
-
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-sony-total)](https://paperswithcode.com/sota/low-light-image-enhancement-on-sony-total?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-vv)](https://paperswithcode.com/sota/low-light-image-enhancement-on-vv?p=you-only-need-one-color-space-an-efficient)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-deblurring-and-enhancement-on)](https://paperswithcode.com/sota/low-light-image-deblurring-and-enhancement-on?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-mef)](https://paperswithcode.com/sota/low-light-image-enhancement-on-mef?p=you-only-need-one-color-space-an-efficient)
-
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-dicm)](https://paperswithcode.com/sota/low-light-image-enhancement-on-dicm?p=you-only-need-one-color-space-an-efficient)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/you-only-need-one-color-space-an-efficient/low-light-image-enhancement-on-lolv2)](https://paperswithcode.com/sota/low-light-image-enhancement-on-lolv2?p=you-only-need-one-color-space-an-efficient)
 
 </div>
 
@@ -51,6 +26,7 @@ Previous Version: [You Only Need One Color Space: An Efficient Network for Low-l
 </details>
 
 ## News 🆕
+- **2025.10.27** Thanks [shade233](https://github.com/shade233) for helping me to fix the conflicts and incorrect usage of argparser.
 - **2025.07.11** Upgraded version paper as "HVI-CIDNet+: Beyond Extreme Darkness for Low-Light Image Enhancement" in [Arxiv](https://arxiv.org/abs/2507.06814). The new code, models and results will be uploaded soon. (code_link：[Github](https://github.com/shikangbiao/CIDNet_extension))
 - **2025.06.03** Special Thanks for Kangbiao Shi for training HVI-CIDNet on FiveK dataset follow retinexformer. The training code and models are avaliable now. 🔆
 - **2025.05.01** Our NTIRE2025 LLIE track championship solution, FusionNet, is now public at [Arxiv](https://arxiv.org/pdf/2504.19295)! 📝
@@ -481,7 +457,10 @@ python net_test.py
 - We put all the configurations that need to be adjusted in the `./data/options.py` folder and explained them in the file. We apologize that some of the training parameters we are no longer able to provide and share with you, but we guarantee that all the weights are trainable by parameter tuning. You can train our HVI-CIDNet by:
 
 ```bash
-python train.py
+# You can choose --start_warmup True/False for setting the warmup in training stage.
+# You can choose these dataset for training: lol_v1, lolv2_real, lolv2_syn, lol_blur, SID, SICE_mix, SICE_grad, fivek.
+# Below is the example.
+python train.py --dataset lol_v1
 ```
 
 - All weights are saved to the `./weights/train` folder and are saved in steps of the checkpoint set in the `options.py`  as `epoch_*.pth` where `*` represent the epoch number.
