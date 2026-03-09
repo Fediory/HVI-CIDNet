@@ -200,6 +200,20 @@ if __name__ == '__main__':
     if not os.path.exists(opt.val_folder):          
         os.mkdir(opt.val_folder) 
         
+    now = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    with open(f"./results/training/metrics{now}.md", "w") as f:
+        f.write("dataset: "+ opt.dataset + "\n")  
+        f.write(f"lr: {opt.lr}\n")  
+        f.write(f"batch size: {opt.batchSize}\n")  
+        f.write(f"crop size: {opt.cropSize}\n")  
+        f.write(f"HVI_weight: {opt.HVI_weight}\n")  
+        f.write(f"L1_weight: {opt.L1_weight}\n")  
+        f.write(f"D_weight: {opt.D_weight}\n")  
+        f.write(f"E_weight: {opt.E_weight}\n")  
+        f.write(f"P_weight: {opt.P_weight}\n")  
+        f.write("| Epochs | PSNR | SSIM | LPIPS |\n")  
+        f.write("|----------------------|----------------------|----------------------|----------------------|\n")  
+        
     for epoch in range(start_epoch+1, opt.nEpochs + start_epoch + 1):
         epoch_loss, pic_num = train(epoch)
         scheduler.step()
@@ -258,21 +272,6 @@ if __name__ == '__main__':
             print(psnr)
             print(ssim)
             print(lpips)
+            with open(f"./results/training/metrics{now}.md", "a") as f:
+                f.write(f"| {epoch} | { avg_psnr:.4f} | {avg_ssim:.4f} | {avg_lpips:.4f} |\n")  
         torch.cuda.empty_cache()
-    
-    now = datetime.now().strftime("%Y-%m-%d-%H%M%S")
-    with open(f"./results/training/metrics{now}.md", "w") as f:
-        f.write("dataset: "+ output_folder + "\n")  
-        f.write(f"lr: {opt.lr}\n")  
-        f.write(f"batch size: {opt.batchSize}\n")  
-        f.write(f"crop size: {opt.cropSize}\n")  
-        f.write(f"HVI_weight: {opt.HVI_weight}\n")  
-        f.write(f"L1_weight: {opt.L1_weight}\n")  
-        f.write(f"D_weight: {opt.D_weight}\n")  
-        f.write(f"E_weight: {opt.E_weight}\n")  
-        f.write(f"P_weight: {opt.P_weight}\n")  
-        f.write("| Epochs | PSNR | SSIM | LPIPS |\n")  
-        f.write("|----------------------|----------------------|----------------------|----------------------|\n")  
-        for i in range(len(psnr)):
-            f.write(f"| {opt.start_epoch+(i+1)*opt.snapshots} | { psnr[i]:.4f} | {ssim[i]:.4f} | {lpips[i]:.4f} |\n")  
-        
