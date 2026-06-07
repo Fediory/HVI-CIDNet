@@ -6,10 +6,14 @@ from net.CIDNet import CIDNet
 import torchvision.transforms as transforms
 import torch.nn.functional as F
 import os
-import imquality.brisque as brisque
 from loss.niqe_utils import *
 import platform
 import argparse
+
+try:
+    import imquality.brisque as brisque
+except ImportError:
+    brisque = None
 
 opt_parser = argparse.ArgumentParser(description='App')
 opt_parser.add_argument('--cpu', action='store_true', help='CPU-Only')
@@ -52,7 +56,7 @@ def process_image(input_img,score,model_path,gamma,alpha_s=1.0,alpha_i=1.0):
     enhanced_img = transforms.ToPILImage()(output.squeeze(0))
     if score == 'Yes':
         im1 = enhanced_img.convert('RGB')
-        score_brisque = brisque.score(im1) 
+        score_brisque = brisque.score(im1) if brisque is not None else "Unavailable (install image-quality)"
         im1 = np.array(im1)
         score_niqe = calculate_niqe(im1)
         return enhanced_img,score_niqe,score_brisque

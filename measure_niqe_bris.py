@@ -1,12 +1,19 @@
 import glob
 from tqdm import tqdm
 from PIL import Image
-import imquality.brisque as brisque
 from loss.niqe_utils import *
 import argparse
 
+try:
+    import imquality.brisque as brisque
+except ImportError:
+    brisque = None
+
 
 def metrics(im_dir):
+    if brisque is None:
+        raise ImportError("BRISQUE scoring requires the optional 'image-quality' package.")
+
     avg_niqe = 0
     n = 0
     avg_brisque = 0
